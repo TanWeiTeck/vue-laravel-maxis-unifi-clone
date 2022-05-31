@@ -8,7 +8,7 @@
                 <h1 class="py-2 text-center text-3xl font-extrabold text-blue-900">
                     Edit Package
                 </h1>
-
+                
                 <form action="{{ route('packages.doUpdate', ['id' => $data['id']]) }}" method="POST" class="flex flex-col justify-center p-4">
                     @csrf
 
@@ -20,9 +20,13 @@
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Service Provider</label>
                                     <select class="rounded-lg border px-3 py-2" type="text" name="service_provider">
-                                        <option value="maxis">Maxis</option>
-                                        <option value="unifi">Unifi</option>
-                                        <option value="time">Time</option>
+                                        @foreach($provides as $key => $value)
+                                            <option value="{{ $key }}" 
+                                            @if ($key == $data['service_provider'])
+                                            selected="selected"
+                                            @endif>
+                                            {{  $value }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="flex w-full flex-col px-4">
@@ -64,6 +68,20 @@
                                 <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='description'
                                     placeholder="description" value="{{ $data['description'] }}">
                             </div>
+                            <div class="flex w-full flex-col px-4">
+                                <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Description</label>
+                                <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='description'
+                                    placeholder="description" value="{{ $data['description'] }}">
+                            </div>
+
+                            <div class="flex w-full flex-col px-4">
+                                <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">is Active?</label>
+                                <select class="rounded-lg border px-3 py-2" type="text" name="is_active">
+                                    <option value="1" @if ('1' == $data['is_active']) selected="selected" @endif>Yes</option>
+                                    <option value="0" @if ('0' == $data['is_active']) selected="selected" @endif>No</option>
+                                </select>
+                            </div>
+                            
                         </div>
                     </div>
                     {{-- error message --}}

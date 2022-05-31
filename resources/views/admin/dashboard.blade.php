@@ -14,10 +14,10 @@
                 ])
                 @include('admin.components.status-card', [
                     ($label = 'Telco Pakages'),
-                    ($data = $Telco_Package),
+                    ($data = $packages),
                     ($icon =
                         'https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png'),
-                    ($link = '{{ route('packages.list') }}'),
+                    ($link =  route('packages.list') ),
                 ])
             </div>
 
@@ -50,7 +50,7 @@
                 ])
                 @include('components.dashboard.graphcard', [
                     ($label = 'Telco Pakages'),
-                    ($data = $Telco_Package),
+                    ($data = $packages),
                     ($icon =
                         'https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png'),
                 ])

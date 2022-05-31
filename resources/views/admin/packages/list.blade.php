@@ -36,7 +36,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Telco_Package as $package)
+                    @foreach ($packages as $package)
                         <tr class="border-b">
                             <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
                                 {{ $package['package_id'] }}</td>

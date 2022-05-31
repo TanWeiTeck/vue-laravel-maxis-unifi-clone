@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\Telco_Package;
+use App\Models\Package;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 
@@ -11,8 +11,8 @@ class PackageController extends Controller
 {
     public function index()
     {
-        $Telco_Package = Telco_Package::all();
-        return view('admin.packages.list', ['Telco_Package' => $Telco_Package]);
+        $packages = Package::all();
+        return view('admin.packages.list', ['packages' => $packages]);
     }
 
     public function create()
@@ -25,26 +25,34 @@ class PackageController extends Controller
         //Validation
         $inputs = $this->fieldValidate($request);
 
-        Telco_Package::create($inputs);
+        Package::create($inputs);
         return redirect(route('packages.list'));
     }
 
     public function doDelete($id)
     {
-        Telco_Package::find($id)->delete();
+        Package::find($id)->delete();
         return redirect(route('packages.list'));
     }
 
 
     public function show($id)
     {
-        $data = Telco_package::find($id);
-        return view('admin.packages.edit', ['data' => $data]);
+        $provides = [
+            'maxis' => 'Maxis',
+            'unifi' => 'Unifi',
+            'time' => 'Time',
+        ];
+
+
+        $data = Package::find($id);
+
+        return view('admin.packages.edit', ['data' => $data, 'provides' => $provides]);
     }
 
     public function doUpdate(Request $request, $id)
     { {
-            $object = Telco_Package::find($id);
+            $object = Package::find($id);
 
             $inputs = $this->fieldValidate($request, $object);
 
@@ -55,6 +63,7 @@ class PackageController extends Controller
             $object->price = $inputs['price'];
             $object->discount = $inputs['discount'];
             $object->discounted_price = $inputs['discounted_price'];
+            $object->is_active = $inputs['is_active'];
 
             $object->save();
 
@@ -74,6 +83,7 @@ class PackageController extends Controller
                 'price' => 'required|integer',
                 'discount' => 'required|integer',
                 'discounted_price' => 'required|integer',
+                'is_active' => 'required|boolean',
             ], ($object) ? [
                 'package_id' => [
                     'required',  'max:200',

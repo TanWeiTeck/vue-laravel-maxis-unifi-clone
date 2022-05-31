@@ -52,7 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('deleteapplication/{id}', [ApplicationListController::class, 'delete']);
 
 
-    Route::get('/package/list', [PackageController::class, 'index'])->name('packages.list');
+    Route::get('/packages/list', [PackageController::class, 'index'])->name('packages.list');
     Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');
     Route::post('/packages/doCreate', [PackageController::class, 'doCreate'])->name('packages.doCreate');
     Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');

@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Telco_Package extends Model
+class Package extends Model
 {
+    use HasFactory;
+
     protected $table = 'telco_packages';
+    
     public $fillable = [
         'service_provider',
         'package_id',
@@ -15,7 +18,17 @@ class Telco_Package extends Model
         'description',
         'price',
         'discount',
-        'discounted_price'
+        'discounted_price',
+        'is_active',
     ];
-    use HasFactory;
+
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
+    public function scopeActive($query)
+    {
+        $query->where('is_active', true);
+    }
+    
 }

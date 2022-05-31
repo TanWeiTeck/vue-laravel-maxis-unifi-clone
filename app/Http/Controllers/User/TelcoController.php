@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
-use App\Models\Telco_Package;
+use App\Models\Package;
 use App\Models\Application;
 use App\Models\Coverage_check;
 use App\Http\Controllers\Controller;
@@ -15,14 +15,14 @@ class TelcoController extends Controller
 {
     public function index()
     {
-        $Telco_Packages = Telco_Package::all();
-        return view(".user.home", ["TelcoPackages" => $Telco_Packages]);
+        $Package = Package::active()->get();
+        return view(".user.home", ["TelcoPackages" => $Package]);
     }
     public function index_apply()
     {
-        $Telco_Packages = Telco_Package::all();
+        $Package = Package::active()->get();
 
-        return view(".user.apply", ["TelcoPackages" => $Telco_Packages]);
+        return view(".user.apply", ["TelcoPackages" => $Package]);
     }
     public function store(Request $request)
     {

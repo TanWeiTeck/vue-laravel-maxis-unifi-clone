@@ -34,7 +34,7 @@
             </div>
             <div
                 class="{{ request()->is('packagelist') ? 'text-blue-600, bg-gray-200' : '' }} group relative border px-2 py-4 duration-300 ease-linear hover:bg-blue-100">
-                <a href="packagelist">
+                <a href="{{ route('packages.list') }}">
                     <img class="m-auto h-8"
                         src="https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png" />
                     <p class="pt-2 text-center">Package</p>

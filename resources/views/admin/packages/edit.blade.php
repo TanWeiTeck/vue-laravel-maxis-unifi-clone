@@ -6,22 +6,20 @@
             <div class="overflow-hidden bg-white p-5 shadow-xl sm:rounded-lg">
 
                 <h1 class="py-2 text-center text-3xl font-extrabold text-blue-900">
-                    Add New Package
+                    Edit Package
                 </h1>
 
-
-                {{-- Apply Form --}}
-
-                <form action="/addpackage" method="POST" class="flex flex-col justify-center p-4">
+                <form action="{{ route('packages.doUpdate', ['id' => $data['id']]) }}" method="POST" class="flex flex-col justify-center p-4">
                     @csrf
+
+                    <input hidden name="id" value="{{ $data->id }}">
 
                     <div class="flex space-x-4">
                         <div class="flex w-full flex-col">
                             <div class="flex w-full flex-col justify-between md:flex-row">
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Service Provider</label>
-                                    <select class="rounded-lg border px-3 py-2" type="text"
-                                        value="{{ old('service_provider') }}" name="service_provider">
+                                    <select class="rounded-lg border px-3 py-2" type="text" name="service_provider">
                                         <option value="maxis">Maxis</option>
                                         <option value="unifi">Unifi</option>
                                         <option value="time">Time</option>
@@ -30,7 +28,7 @@
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Package ID</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='package_id'
-                                        value="{{ old('package_id') }}" placeholder="eg:(mx300149)">
+                                        placeholder="eg:(mx300149)" value="{{ $data['package_id'] }}">
                                 </div>
                             </div>
 
@@ -38,35 +36,33 @@
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Internet Speed</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='internet_speed'
-                                        value="{{ old('internet_speed') }}" placeholder="internet speed">
-
+                                        placeholder="internet speed" value="{{ $data['internet_speed'] }}">
                                 </div>
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Price (RM)</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='price'
-                                        value="{{ old('price') }}" placeholder="price">
+                                        placeholder="price" value="{{ $data['price'] }}">
                                 </div>
                             </div>
-
 
                             <div class="flex w-full flex-col justify-between md:flex-row">
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Discount (RM)</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='discount'
-                                        value="{{ old('discount') }}" placeholder="discount">
+                                        placeholder="discount" value="{{ $data['discount'] }}">
 
                                 </div>
                                 <div class="flex w-full flex-col px-4">
                                     <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Discounted Price
                                         (RM)</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='discounted_price'
-                                        value="{{ old('discounted_price') }}" placeholder="discounted price">
+                                        placeholder="discounted price" value="{{ $data['discounted_price'] }}">
                                 </div>
                             </div>
                             <div class="flex w-full flex-col px-4">
                                 <label class="mt-2 text-xl font-extrabold text-blue-900 md:mt-3">Description</label>
                                 <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='description'
-                                    value="{{ old('description') }}" placeholder="description">
+                                    placeholder="description" value="{{ $data['description'] }}">
                             </div>
                         </div>
                     </div>
@@ -85,13 +81,12 @@
                         </div>
                         {{-- end error message --}}
 
-                        <button
-                            class="mt-3 rounded-md bg-[#40c706] px-7 py-2 font-extrabold text-white duration-300 hover:scale-95 hover:bg-blue-400 hover:text-black">ADD
+                        <button type="submit" name="update"
+                            class="mt-3 rounded-md bg-[#40c706] px-7 py-2 font-extrabold text-white duration-300 hover:scale-95 hover:bg-blue-400 hover:text-black">UPDATE
                         </button>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 @stop

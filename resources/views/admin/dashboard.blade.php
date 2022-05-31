@@ -17,7 +17,7 @@
                     ($data = $Telco_Package),
                     ($icon =
                         'https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png'),
-                    ($link = '/packagelist'),
+                    ($link = '{{ route('packages.list') }}'),
                 ])
             </div>
 

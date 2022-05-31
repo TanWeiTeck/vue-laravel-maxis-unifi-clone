@@ -5,7 +5,7 @@ use App\Http\Controllers\User\TelcoController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\LogoutController;
-use App\Http\Controllers\Admin\PackageListController;
+use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\ApplicationListController;
 use App\Http\Controllers\Admin\Auth\VerificationController;
@@ -52,10 +52,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('deleteapplication/{id}', [ApplicationListController::class, 'delete']);
 
 
-    Route::get('/packagelist', [PackageListController::class, 'index'])->name('packagelist');
-    Route::get('/addpackage', [PackageListController::class, 'add'])->name('addpackage');
-    Route::post('/addpackage', [PackageListController::class, 'create']);
-    Route::get('/edit/{id}', [PackageListController::class, 'edit']);
-    Route::post('/edit', [PackageListController::class, 'update']);
-    Route::get('deletepackage/{id}', [PackageListController::class, 'delete']);
+    Route::get('/package/list', [PackageController::class, 'index'])->name('packages.list');
+    Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');
+    Route::post('/packages/doCreate', [PackageController::class, 'doCreate'])->name('packages.doCreate');
+    Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
+    Route::post('packages/edit/{id}', [PackageController::class, 'doUpdate'])->name('packages.doUpdate');
+    Route::get('packages/delete/{id}', [PackageController::class, 'doDelete'])->name('packages.doDelete');
 });

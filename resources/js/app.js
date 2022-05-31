@@ -23,14 +23,11 @@ Vue.component(
     "example-component",
     require("./components/ExampleComponent.vue").default
 );
-Vue.component(
-    "sidemenu-component",
-    require("./components/SideMenu.vue").default
-);
+Vue.component("side-menu", require("./components/SideMenu.vue").default);
 Vue.component("line-chart", require("./components/LineChart.vue").default);
 
 Vue.component("doughnut-chart", require("./components/Doughnut.vue").default);
-Vue.component("slide-menu", require("./components/SlideMenu.vue").default);
+Vue.component("side-menu2", require("./components/SideMenu2.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

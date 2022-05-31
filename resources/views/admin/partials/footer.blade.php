@@ -2,7 +2,7 @@
     <div class="w-full p-4 sm:flex sm:justify-around">
         <div class="flex flex-col py-2">
             <h1 class="pb-2 text-lg font-extrabold">USEFUL LINK</h1>
-            <a class="pt-1" href="#">HOME</a>
+            <a class="pt-1" href="/">HOME</a>
             <a class="pt-1" href="/apply">APPLY NOW</a>
             <a class="pt-1" href="#fibreplan">MAXIS FIBRE PLANS</a>
             <a class="pt-1" href="#coverage">COVERAGE CHECK</a>

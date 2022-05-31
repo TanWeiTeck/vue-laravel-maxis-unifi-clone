@@ -1,5 +1,5 @@
 <div class="flex h-20 items-center justify-between p-4">
-    <a class="h-full object-contain" href="{{ url('/home') }}">
+    <a class="h-full object-contain" href="{{ url('/') }}">
         <img class="h-full object-contain"
             src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/maxis_logo-1.jpg"
             alt="maxislogo" /></a>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="lg:hidden">
-        <sidemenu-component />
+        <side-menu />
     </div>
 
 </div>

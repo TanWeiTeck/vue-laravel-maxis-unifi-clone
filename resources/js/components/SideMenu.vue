@@ -49,14 +49,14 @@
                     class="border-t border-gray-800 px-3 py-3 text-white"
                     href="tel:0123367xxxx"
                 >
-                    <btn>012-3367xxxx</btn>
+                    <button>012-3367xxxx</button>
                 </a>
 
                 <a
                     class="border-t border-gray-800 px-3 py-3 text-white"
                     href="tel:0123367xxxx"
                 >
-                    <btn>TECHNICAL: 123</btn>
+                    <button>TECHNICAL: 123</button>
                 </a>
             </div>
             <div class="fixed top-2 right-2">

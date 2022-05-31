@@ -1,4 +1,4 @@
-<slide-menu>
+<side-menu2>
 
     <div>
 
@@ -54,4 +54,4 @@
         </div>
     </div>
 
-</slide-menu>
+</side-menu2>

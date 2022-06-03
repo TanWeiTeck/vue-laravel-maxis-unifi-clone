@@ -16,10 +16,10 @@
 </head>
 
 <body class="antialiased">
-    <div id="app" class="relative min-h-screen">
+    <div id="app" class="relative m-auto min-h-screen max-w-screen-2xl">
         {{-- Header --}}
         <div>
-            @include('user.partials.header')
+            @include('user.unifi.partials.header')
         </div>
 
         {{-- Main Content --}}
@@ -31,7 +31,7 @@
 
         {{-- Footer --}}
         <div class="absolute bottom-0 block w-full">
-            @include('user.partials.footer')
+            @include('user.unifi.partials.footer')
         </div>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>

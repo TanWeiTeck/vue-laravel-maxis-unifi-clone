@@ -1,6 +1,6 @@
 {{-- services --}}
-<div class="p-3">
-    <h1 class="py-4 text-center text-3xl font-extrabold text-blue-900">
+<div class="pt-6">
+    <h1 class="py-4 text-center text-3xl font-bold text-blue-900">
         Register Now with MaxisONE Home Fibre Plans
     </h1>
     {{-- service section a --}}
@@ -10,7 +10,7 @@
             <img class="rounded-xl"
                 src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/registration-1024x683.jpg"
                 alt="" />
-            <h1 class="text-2xl font-extrabold text-blue-900">
+            <h1 class="text-2xl font-bold text-blue-900">
                 Registration
             </h1>
             <p class="text-center">
@@ -25,7 +25,7 @@
             <img class="rounded-xl"
                 src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/Pick-a-date-pict-1024x683.jpg"
                 alt="" />
-            <h1 class="text-2xl font-extrabold text-blue-900">
+            <h1 class="text-2xl font-bold text-blue-900">
                 Pick a Date
             </h1>
             <p class="text-center">
@@ -40,7 +40,7 @@
             <img class="rounded-xl"
                 src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/maxis-installation-and-connection-test-pict-1024x683.jpg"
                 alt="" />
-            <h1 class="text-center text-2xl font-extrabold text-blue-900">
+            <h1 class="text-center text-2xl font-bold text-blue-900">
                 Installation and Connection Test
             </h1>
             <p class="text-center">
@@ -53,8 +53,8 @@
     </div>
     {{-- end service section a --}}
     {{-- services section 'b' --}}
-    <div class="bg-gray-200 p-3">
-        <h1 class="p-4 text-center text-3xl font-extrabold text-blue-900">
+    <div class="bg-gray-200 p-3 pt-6">
+        <h1 class="p-4 text-center text-3xl font-bold text-blue-900">
             Level up at life, work and play with the right fibre plan
         </h1>
         <!-- service cards b -->
@@ -62,7 +62,7 @@
             <!-- service card b1 -->
             <div class="flex flex-col items-center space-y-3 py-3 sm:w-44">
                 <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/Setting_Icon.png" alt="" />
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Improved WiFi Coverage
                 </h1>
                 <p class="text-center">
@@ -73,7 +73,7 @@
             <!-- service card b2 -->
             <div class="flex flex-col items-center space-y-3 py-3 sm:w-44">
                 <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/Wifi_Icon.png" alt="" />
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Dual-band router
                 </h1>
                 <p class="text-center">
@@ -85,7 +85,7 @@
             <!-- service card b3 -->
             <div class="flex flex-col items-center space-y-3 py-3 sm:w-44">
                 <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/Speed_Icon.png" alt="" />
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Superfast speeds up to 800Mbp
                 </h1>
                 <p class="text-center">
@@ -99,7 +99,7 @@
                 <div class="flex flex-col items-center space-y-3 py-3 sm:w-44">
                     <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/Unlimited_data_Icon.png"
                         alt="" />
-                    <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                    <h1 class="text-center text-2xl font-bold text-blue-900">
                         Unlimited data
                     </h1>
                     <p class="text-center">
@@ -111,7 +111,7 @@
                 <div class="flex flex-col items-center space-y-3 py-3 sm:w-44">
                     <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/Home_wifi_Icon.png"
                         alt="" />
-                    <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                    <h1 class="text-center text-2xl font-bold text-blue-900">
                         Maxperts Installation
                     </h1>
                     <p class="text-center">

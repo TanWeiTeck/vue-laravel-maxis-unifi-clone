@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Package;
 use App\Models\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
@@ -13,8 +14,12 @@ class DashboardController extends Controller
     {
         $Application = Application::all();
         $packages = Package::all();
-        $ApplicationData = Application::where("package_id", 'MX-030089')->get();
+        $applicationsByMonth = Application::select(DB::raw("(COUNT(*)) as count"), DB::raw("MONTH(created_at) as month"))
+            ->groupBy('month')
+            ->get();
 
-        return view('admin.dashboard', ["Application" => $Application, "packages" => $packages]);
+        // dd($applicationsByMonth);
+
+        return view('admin.dashboard', ["Application" => $Application, "packages" => $packages, 'applicationByMonth' => $applicationsByMonth]);
     }
 }

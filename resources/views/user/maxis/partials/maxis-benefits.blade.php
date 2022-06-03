@@ -1,16 +1,16 @@
-<div class="bg-gray-100">
-    <h1 class="p-3 py-4 text-center text-3xl font-extrabold text-blue-900">
+<div class="bg-gray-100 py-6">
+    <h1 class="p-3 py-4 text-center text-3xl font-bold text-blue-900">
         Better home broadband starts from optimizing the setup for best wifi
         experience
     </h1>
     <!-- cards -->
-    <div class="m-auto flex max-w-screen-2xl flex-col justify-center border">
+    <div class="m-auto flex max-w-screen-2xl flex-col justify-center">
         <!-- card 1 -->
         <div class="flex flex-col items-center space-y-3 p-3 lg:flex-row lg:justify-around">
             <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/MaxisOne-promotion-maxpert.png"
                 alt="" width="180px" />
             <div class="max-w-[50rem]">
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Amazing Internet Speed
                 </h1>
                 <p class="text-center">
@@ -30,7 +30,7 @@
             <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/MaxisOne-promotion-maxpert.png"
                 alt="" width="180px" />
             <div class="max-w-[50rem]">
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Unlimited Data Usage
                 </h1>
                 <p class="text-center">
@@ -46,7 +46,7 @@
             <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/MaxisOne-promotion-maxpert.png"
                 alt="" width="180px" />
             <div class="max-w-[50rem]">
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Amazing Internet Speed
                 </h1>
                 <p class="text-center">
@@ -62,7 +62,7 @@
             <img src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/11/MaxisOne-promotion-maxpert.png"
                 alt="" width="180px" />
             <div class="max-w-[50rem]">
-                <h1 class="text-center text-2xl font-extrabold text-blue-900">
+                <h1 class="text-center text-2xl font-bold text-blue-900">
                     Unlimited Data Usage
                 </h1>
                 <p class="text-center">

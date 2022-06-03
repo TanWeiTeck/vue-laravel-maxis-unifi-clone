@@ -95,8 +95,8 @@ export default {
         };
     },
     methods: {
-        filterData(x) {
-            return this.data.filter((y) => y.package_id == x);
+        filterData(id) {
+            return this.data.filter((i) => i.package_id == id);
         },
         getTotal() {
             let id = [

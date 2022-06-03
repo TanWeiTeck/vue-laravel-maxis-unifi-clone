@@ -1,30 +1,23 @@
-@extends('.user/layouts/master')
+@extends('.user.maxis.layouts.master')
 
 @section('content')
-    @include('user.partials.hero')
-    @if (Session::has('success'))
-        <div class="alert alert-success w-full border border-red-400 bg-red-300 py-2 text-center">
-            {{ Session::get('success') }}
-        </div>
-    @endif
-    {{-- success submitted message --}}
+    @include('user.maxis.partials.hero')
 
     {{-- Apply Form --}}
 
-    <form action="/apply" method="POST" class="flex flex-col justify-center p-4">
+    <form action="{{ route('apply') }}" method="POST" class="flex flex-col justify-center p-4 md:px-10">
         @csrf
 
         <div class="flex space-x-4">
             <div class="flex w-full flex-col">
-                <label class="mt-4 text-xl font-extrabold text-blue-900">MaxisONE Home Fibre Package (required)*</label>
+                <label class="mt-4 text-xl font-bold text-blue-900">MaxisONE Home Fibre Package (required)*</label>
                 <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
                     @foreach ($TelcoPackages as $package)
                         <option value="{{ $package['package_id'] }}">Maxis Home Fibre {{ $package['internet_speed'] }} -
                             RM{{ $package['price'] }}</option>
                     @endforeach
-
                 </select>
-                <label class="mt-4 text-xl font-extrabold text-blue-900">Contact Details (required)*</label>
+                <label class="mt-4 text-xl font-bold text-blue-900">Contact Details (required)*</label>
 
                 <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='name' placeholder="Your Name"
                     value="{{ old('name') }}">
@@ -38,7 +31,7 @@
         </div>
         {{-- error message --}}
         @if ($errors->any())
-            <div class="alert alert-danger text-sm text-red-600">
+            <div class="w-full border border-red-400 bg-red-100 p-1 text-xs text-red-600">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -48,7 +41,7 @@
         @endif
         {{-- end error message --}}
         <div class="flex flex-col">
-            <label class="mt-4 text-xl font-extrabold text-blue-900">Message (optional)</label>
+            <label class="mt-4 text-xl font-bold text-blue-900">Message (optional)</label>
             <textarea class="h-[150px] w-full rounded-lg border px-3 py-2" name="message" value="{{ old('message') }}"></textarea>
         </div>
 

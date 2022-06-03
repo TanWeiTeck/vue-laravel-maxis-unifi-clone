@@ -12,4 +12,4 @@
 <p>Message: {{ $Application->message }}</p>
 
 
-<a href='http://telco.test/admin'>Check in admin dashboard</a>
+<a href='http://telco-v2.test/applications/list'>Check in admin dashboard</a>

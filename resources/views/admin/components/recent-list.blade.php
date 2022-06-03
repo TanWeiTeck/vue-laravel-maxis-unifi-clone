@@ -37,7 +37,7 @@
             </tbody>
         </table>
         <div class="p-3 text-xs">
-            <a href='/applicationlist'>
+            <a href='{{ route('applications.list') }}'>
                 @include('admin.components.primary-button', [
                     'label' => 'Show Full Application List',
                 ])

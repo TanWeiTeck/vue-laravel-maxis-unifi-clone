@@ -16,33 +16,24 @@
 </head>
 
 <body class="antialiased">
-
     <div id="app" class="relative m-auto min-h-screen max-w-screen-2xl">
-
         {{-- Header --}}
         <div>
-            @include('admin.partials.header')
+            @include('user.maxis.partials.header')
         </div>
-        <div class="flex">
-            @auth
-                <div class="">
-                    @include('admin.components.dashboard-menu')
-                </div>
-            @endauth
-            <div class="flex-grow overflow-hidden">
-                {{-- Main Content --}}
-                <div class="">
-                    @yield('content')
-                </div>
-            </div>
+
+        {{-- Main Content --}}
+
+        <div class="">
+            @yield('content')
         </div>
         <div class="min-h-[461px] sm:min-h-[221px]"></div>
+
         {{-- Footer --}}
-        <div class="absolute bottom-0 w-full">
-            @include('admin.partials.footer')
+        <div class="absolute bottom-0 block w-full">
+            @include('user.maxis.partials.footer')
         </div>
     </div>
-    @include('admin.partials.js-variable')
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 

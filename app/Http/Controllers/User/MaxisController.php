@@ -11,18 +11,18 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\NewApplication;
 use App\Mail\NewCoverageCheck;
 
-class TelcoController extends Controller
+class MaxisController extends Controller
 {
     public function index()
     {
         $Package = Package::active()->get();
-        return view(".user.home", ["TelcoPackages" => $Package]);
+        return view(".user.maxis.home", ["TelcoPackages" => $Package]);
     }
     public function index_apply()
     {
         $Package = Package::active()->get();
 
-        return view(".user.apply", ["TelcoPackages" => $Package]);
+        return view(".user.maxis.apply", ["TelcoPackages" => $Package]);
     }
     public function store(Request $request)
     {
@@ -43,13 +43,13 @@ class TelcoController extends Controller
         return back()->with('success', 'Congratulations ! ! !  Your application has been submitted.');
     }
 
-    public function store_coverage(Request $request)
+    public function coverage_doCreate(Request $request)
     {
         $this->validate($request, [
             'name' => ['required', 'min:3'],
             'email'  => 'required',
             'location'  => 'required',
-            'contact' => ['required', 'unique:applications'],
+            'contact' => ['required', 'unique:Coverage_check'],
             'message' => ''
         ]);
 

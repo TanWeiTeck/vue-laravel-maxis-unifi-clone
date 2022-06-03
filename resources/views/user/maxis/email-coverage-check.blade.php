@@ -9,6 +9,3 @@
 <p>Contact: {{ $Coverage_Check->contact }}</p>
 <p>Location: {{ $Coverage_Check->location }}</p>
 <p>Message: {{ $Coverage_Check->message }}</p>
-
-
-<a href='http://telco.test/admin'>Check in admin dashboard</a>

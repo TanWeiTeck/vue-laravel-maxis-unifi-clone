@@ -70,6 +70,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        data: {
+            type: Array,
+            // default: [],
+        },
     },
     data() {
         return {
@@ -90,16 +94,30 @@ export default {
                 ],
                 datasets: [
                     {
-                        label: "Data One",
-                        backgroundColor: "#f87979",
-                        data: [40, 39, 10, 40, 39, 70, 40, 60, 55, 70, 65, 80],
+                        label: "Maxis",
+                        backgroundColor: "#40c706",
+                        data: [],
                         fill: {
                             target: "origin",
                             above: "rgb(255, 0, 0)", // Area will be red above the origin
                             below: "rgb(0, 0, 255)", // And blue below the origin
                         },
-                        backgroundColor: "rgba(0, 180, 255, 1)",
-                        hoverBackgroundColor: "rgba(180, 0, 255, 1)",
+                        backgroundColor: "#40c706",
+                        hoverBackgroundColor: "#40c706",
+                        fill: true,
+                        tension: 0.3,
+                    },
+                    {
+                        label: "Unifi",
+                        backgroundColor: "#f87979",
+                        data: [10, 2, 7, 4, 5, 9, 7, 8, 5, 10, 11, 12],
+                        fill: {
+                            target: "origin",
+                            above: "rgb(255, 0, 0)", // Area will be red above the origin
+                            below: "rgb(0, 0, 255)", // And blue below the origin
+                        },
+                        backgroundColor: "#fd7e14",
+                        hoverBackgroundColor: "#fd7e14",
                         fill: true,
                         tension: 0.3,
                     },
@@ -110,6 +128,27 @@ export default {
                 maintainAspectRatio: false,
             },
         };
+    },
+
+    methods: {
+        filterData(month) {
+            return this.data.filter((i) => i.month == month);
+        },
+
+        getMonthlyTotal() {
+            let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+            for (let i = 0; i < months.length; i++) {
+                let monthlyData = this.filterData(months[i]);
+                let monthlyCount =
+                    monthlyData.length > 0 ? monthlyData[0].count : "";
+                this.chartData.datasets[0].data.push(monthlyCount);
+            }
+        },
+    },
+    mounted() {
+        this.getMonthlyTotal();
+        console.log(this.chartData.datasets[0].data);
     },
 };
 </script>

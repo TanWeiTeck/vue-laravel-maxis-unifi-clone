@@ -17,7 +17,13 @@ class PackageController extends Controller
 
     public function create()
     {
-        return view('admin.packages.add');
+        $provides = [
+            'maxis' => 'Maxis',
+            'unifi' => 'Unifi',
+            'time' => 'Time',
+        ];
+
+        return view('admin.packages.add', ['provides' => $provides]);
     }
 
     public function doCreate(Request $request)
@@ -100,8 +106,6 @@ class PackageController extends Controller
                 ],
             ])
         );
-
-
         return $inputs;
     }
 }

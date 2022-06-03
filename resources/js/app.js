@@ -24,10 +24,13 @@ Vue.component(
     require("./components/ExampleComponent.vue").default
 );
 Vue.component("side-menu", require("./components/SideMenu.vue").default);
-Vue.component("line-chart", require("./components/LineChart.vue").default);
-
-Vue.component("doughnut-chart", require("./components/Doughnut.vue").default);
 Vue.component("side-menu2", require("./components/SideMenu2.vue").default);
+Vue.component("line-chart", require("./components/LineChart.vue").default);
+Vue.component(
+    "doughnut-chart",
+    require("./components/DoughnutChart.vue").default
+);
+Vue.component("modal-blur", require("./components/ModalBlur.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

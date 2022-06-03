@@ -2,13 +2,13 @@
 
 @section('content')
 
-    <div class="mx-auto max-w-7xl overflow-hidden py-12 sm:px-6 lg:px-8">
-        <div class="mb-2 flex items-center px-2">
+    <div class="m-auto p-6">
+        <div class="mb-2 items-center px-2 lg:flex">
             <h3 class="flex-auto text-2xl">Package</h3>
             <a class="text-sm hover:text-blue-700" href="{{ route('packages.create') }}">+ Add New Package</a>
         </div>
 
-        <div class="max-w-full overflow-x-scroll bg-gray-50">
+        <div class="overflow-x-scroll overflow-y-scroll rounded-xl bg-gray-50">
             <table class="min-w-full">
                 <thead class="border-b">
                     <tr>
@@ -55,20 +55,20 @@
                             <td class="whitespace-nowrap px-6 py-2 text-sm font-light text-gray-900">
                                 {{ $package['discounted_price'] }}
                             </td>
-                            <td class="whitespace-nowrap px-6 py-2 text-sm font-light text-gray-900">
+                            <td class="min-w-[180px] whitespace-normal px-6 py-2 text-sm font-light text-gray-900">
                                 {{ $package['description'] }}
                             </td>
                             <td class="px-6 py-2 pr-1 text-sm font-light text-gray-900">
-                                <a href="{{  route('packages.show', ['id' =>  $package['id'] ])  }}" name="edit">
+                                <a href="{{ route('packages.show', ['id' => $package['id']]) }}" name="edit">
                                     <button
-                                        class="rounded-lg bg-green-500 py-1 px-4 font-bold hover:bg-green-800 hover:text-gray-100">Edit</button>
+                                        class="mx-1 rounded-lg border border-green-400 bg-white py-1 px-3 font-bold hover:bg-green-400 hover:text-gray-100">Edit</button>
                                 </a>
                             </td>
                             <td class="whitespace-nowrap px-1 py-4 text-sm font-light text-gray-900">
-                                <a href="{{  route('packages.doDelete', ['id' =>  $package['id'] ])  }}" name="delete">
+                                <a href="{{ route('packages.doDelete', ['id' => $package['id']]) }}" name="delete">
 
                                     <button
-                                        class="rounded-lg bg-red-400 py-1 px-3 font-bold hover:bg-red-800 hover:text-gray-100">Delete</button>
+                                        class="mx-1 rounded-lg border border-red-400 bg-white py-1 px-3 font-bold hover:bg-red-600 hover:text-gray-100">Delete</button>
                                 </a>
                             </td>
                         </tr>

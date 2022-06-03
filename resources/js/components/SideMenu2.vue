@@ -35,9 +35,7 @@ export default {
         },
     },
 
-    mounted() {
-        console.log(this.show);
-    },
+    mounted() {},
 };
 </script>
 

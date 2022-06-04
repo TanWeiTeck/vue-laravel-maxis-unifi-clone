@@ -19,7 +19,7 @@
                     <p class="text-[0.6rem]">* Existing customer who change rate plan is not eligible for free DECT
                         phone.
                     </p>
-                    <hr class="my-3 border-8 text-blue-800">
+                    <hr class="my-3 border-2">
                     <div class="flex items-center justify-between">
                         <h1><span class="text-xl font-bold">RM {{ $package['price'] }}</span>/month</h1>
                         <a href="{{ url('/apply') }}">

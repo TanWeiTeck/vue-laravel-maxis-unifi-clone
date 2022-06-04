@@ -5584,7 +5584,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
     }
   },
   data: function data() {
-    var _ref, _ref2;
+    var _ref;
 
     return {
       chartData: {
@@ -5600,18 +5600,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
             below: "rgb(0, 0, 255)" // And blue below the origin
 
           }
-        }, _defineProperty(_ref, "backgroundColor", "#40c706"), _defineProperty(_ref, "hoverBackgroundColor", "#40c706"), _defineProperty(_ref, "fill", true), _defineProperty(_ref, "tension", 0.3), _ref), (_ref2 = {
-          label: "Unifi",
-          backgroundColor: "#f87979",
-          data: [10, 2, 7, 4, 5, 9, 7, 8, 5, 10, 11, 12],
-          fill: {
-            target: "origin",
-            above: "rgb(255, 0, 0)",
-            // Area will be red above the origin
-            below: "rgb(0, 0, 255)" // And blue below the origin
-
-          }
-        }, _defineProperty(_ref2, "backgroundColor", "#fd7e14"), _defineProperty(_ref2, "hoverBackgroundColor", "#fd7e14"), _defineProperty(_ref2, "fill", true), _defineProperty(_ref2, "tension", 0.3), _ref2)]
+        }, _defineProperty(_ref, "backgroundColor", "#40c706"), _defineProperty(_ref, "hoverBackgroundColor", "#40c706"), _defineProperty(_ref, "fill", true), _defineProperty(_ref, "tension", 0.3), _ref)]
       },
       chartOptions: {
         responsive: true,

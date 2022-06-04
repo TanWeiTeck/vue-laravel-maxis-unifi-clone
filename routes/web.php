@@ -2,12 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\MaxisController;
+use App\Http\Controllers\User\UnifiController;
+use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\Admin\Auth\LogoutController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\Auth\LogoutController;
+use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\VerificationController;
 
 /*
@@ -26,6 +27,7 @@ Route::post('/coverage/doCreate', [MaxisController::class, "coverage_doCreate"])
 Route::get('/apply', [MaxisController::class, "index_apply"])->name('apply');
 Route::post('/apply', [MaxisController::class, "store"])->name('apply');
 
+Route::get('/unifi', [UnifiController::class, "index"])->name('home');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -46,19 +48,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/applicationlist', [ApplicationListController::class, 'index'])->name('applicationlist');
-    Route::get('/addapplication', [ApplicationListController::class, 'add'])->name('addapplication');
-    Route::post('/addapplication', [ApplicationListController::class, 'create']);
-    Route::get('deleteapplication/{id}', [ApplicationListController::class, 'delete']);
-
     Route::get('/applications/list', [ApplicationController::class, 'index'])->name('applications.list');
     Route::get('/applications/create', [ApplicationController::class, 'create'])->name('applications.create');
     Route::post('/applications/doCreate', [ApplicationController::class, 'doCreate'])->name('applications.doCreate');
     Route::get('/applications/edit/{id}', [ApplicationController::class, 'edit'])->name('applications.edit');
     Route::post('/applications/doUpdate/{id}', [ApplicationController::class, 'doUpdate'])->name('applications.doUpdate');
     Route::get('/applications/delete/{id}', [ApplicationController::class, 'doDelete'])->name('applications.doDelete');
-
-
 
     Route::get('/packages/list', [PackageController::class, 'index'])->name('packages.list');
     Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');

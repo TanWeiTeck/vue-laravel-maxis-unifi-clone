@@ -107,20 +107,20 @@ export default {
                         fill: true,
                         tension: 0.3,
                     },
-                    {
-                        label: "Unifi",
-                        backgroundColor: "#f87979",
-                        data: [10, 2, 7, 4, 5, 9, 7, 8, 5, 10, 11, 12],
-                        fill: {
-                            target: "origin",
-                            above: "rgb(255, 0, 0)", // Area will be red above the origin
-                            below: "rgb(0, 0, 255)", // And blue below the origin
-                        },
-                        backgroundColor: "#fd7e14",
-                        hoverBackgroundColor: "#fd7e14",
-                        fill: true,
-                        tension: 0.3,
-                    },
+                    // {
+                    //     label: "Unifi",
+                    //     backgroundColor: "#f87979",
+                    //     data: [10, 2, 7, 4, 5, 9, 7, 8, 5, 10, 11, 12],
+                    //     fill: {
+                    //         target: "origin",
+                    //         above: "rgb(255, 0, 0)", // Area will be red above the origin
+                    //         below: "rgb(0, 0, 255)", // And blue below the origin
+                    //     },
+                    //     backgroundColor: "#fd7e14",
+                    //     hoverBackgroundColor: "#fd7e14",
+                    //     fill: true,
+                    //     tension: 0.3,
+                    // },
                 ],
             },
             chartOptions: {

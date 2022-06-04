@@ -8,6 +8,4 @@
     @include('user.maxis.partials.maxis-fibre')
     @include('user.maxis.partials.maxis-benefits')
     @include('user.maxis.partials.maxis-coveragecheck')
-
-
 @stop

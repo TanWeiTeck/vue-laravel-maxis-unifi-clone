@@ -2,10 +2,10 @@
     <div class="w-full p-4 sm:flex sm:justify-around">
         <div class="flex flex-col py-2">
             <h1 class="pb-2 text-lg font-bold">USEFUL LINK</h1>
-            <a class="pt-1" href="{{ route('home') }}">HOME</a>
+            <a class="pt-1" href="{{ route('maxishome') }}">HOME</a>
             <a class="pt-1" href="{{ route('apply') }}">APPLY NOW</a>
-            <a class="pt-1" href="{{ route('home') }}/#fibreplan">MAXIS FIBRE PLANS</a>
-            <a class="pt-1" href="{{ route('home') }}/#coverage">COVERAGE CHECK</a>
+            <a class="pt-1" href="{{ route('maxishome') }}/#fibreplan">MAXIS FIBRE PLANS</a>
+            <a class="pt-1" href="{{ route('maxishome') }}/#coverage">COVERAGE CHECK</a>
         </div>
         <div class="flex flex-col py-2">
             <h1 class="pb-2 text-lg font-bold">CUSTOMER SUPPORT</h1>

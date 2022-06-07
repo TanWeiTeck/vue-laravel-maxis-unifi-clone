@@ -18,8 +18,6 @@ class DashboardController extends Controller
             ->groupBy('month')
             ->get();
 
-        // dd($applicationsByMonth);
-
         return view('admin.dashboard', ["Application" => $Application, "packages" => $packages, 'applicationByMonth' => $applicationsByMonth]);
     }
 }

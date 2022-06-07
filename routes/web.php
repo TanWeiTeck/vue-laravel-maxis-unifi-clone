@@ -22,12 +22,12 @@ use App\Http\Controllers\Admin\Auth\VerificationController;
 |
 */
 
-Route::get('/', [MaxisController::class, "index"])->name('home');
+Route::get('/', [MaxisController::class, "index"])->name('maxishome');
 Route::post('/coverage/doCreate', [MaxisController::class, "coverage_doCreate"])->name('coverage.doCreate');
 Route::get('/apply', [MaxisController::class, "index_apply"])->name('apply');
 Route::post('/apply', [MaxisController::class, "store"])->name('apply');
 
-Route::get('/unifi', [UnifiController::class, "index"])->name('home');
+Route::get('/unifi', [UnifiController::class, "index"])->name('unifihome');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

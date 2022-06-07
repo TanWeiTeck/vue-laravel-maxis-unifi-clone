@@ -31,6 +31,6 @@ class NewCoverageCheck extends Mailable
      */
     public function build()
     {
-        return $this->from('tanwt08180@gmail.com')->view('user.email-coverage-check')->subject('New Coverage Check Request - Maxis Fibre');
+        return $this->from('tanwt08180@gmail.com')->view('user.maxis.email-coverage-check')->subject('New Coverage Check Request - Maxis Fibre');
     }
 }

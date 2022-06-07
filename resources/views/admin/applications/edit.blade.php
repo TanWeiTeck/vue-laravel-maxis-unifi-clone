@@ -57,7 +57,8 @@
                                     <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Package</label>
                                     <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
                                         @foreach ($packages as $package)
-                                            <option value="{{ $package['package_id'] }}">
+                                            <option value="{{ $package['package_id'] }}"
+                                                @if ($package['package_id'] == $data['package_id']) selected='selected' @endif>
                                                 {{ $package['package_id'] }} - Maxis Home Fibre
                                                 {{ $package['internet_speed'] }} -
                                                 RM{{ $package['price'] }}</option>

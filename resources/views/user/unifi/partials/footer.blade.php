@@ -1,7 +1,7 @@
 <div class="bg-stone-200 text-xs text-gray-800">
     <div class="w-full p-4 sm:flex sm:justify-around">
         <div class="flex flex-col py-2">
-            <a class="h-16 object-contain" href="{{ route('home') }}">
+            <a class="h-16 object-contain" href="{{ route('unifihome') }}">
                 <img class='h-full object-contain p-3'
                     src="https://home.unifi.com.my/themes/custom/unifi/assets/svg/unifi-logo.svg" alt="unifi_logo">
             </a>

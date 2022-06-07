@@ -31,24 +31,6 @@ class ApplicationController extends Controller
         return redirect(route('applications.list'));
     }
 
-
-
-    // public function doCreate(Request $request)
-    // {
-    //     //Validation
-    //     $this->validate($request, [
-    //         'name' => ['required', 'min:3'],
-    //         'email'  => 'required',
-    //         'location'  => 'required',
-    //         'contact' => ['required', 'unique:applications'],
-    //         'package_id' => 'required',
-    //         'message' => '',
-    //     ]);
-
-    //     Application::create($request->all());
-    //     return redirect('applicationlist');
-    // }
-
     public function doDelete($id)
     {
         Application::find($id)->delete();
@@ -103,7 +85,7 @@ class ApplicationController extends Controller
             array_merge([
                 'name' => 'required|min:3|max:30',
                 'email'  => 'required|max:30',
-                'location'  => 'required|integer|max:999999',
+                'location'  => 'required',
                 'package_id' => 'required',
                 'message' => 'nullable',
                 'status' => 'nullable',

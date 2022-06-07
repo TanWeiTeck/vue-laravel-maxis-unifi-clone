@@ -82,7 +82,6 @@
                                                 @if ($key == $data['status']) selected="selected" @endif>
                                                 {{ $value }}</option>
                                         @endforeach
-
                                     </select>
 
                                 </div>

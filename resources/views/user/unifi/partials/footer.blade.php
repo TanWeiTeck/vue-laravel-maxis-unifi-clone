@@ -1,5 +1,16 @@
-<div class="bg-stone-200 text-xs text-gray-800">
-    <div class="w-full p-4 sm:flex sm:justify-around">
+<div class="bg-gray-500 text-xs text-white">
+    <div class="w-full items-center bg-black p-4 pb-10 sm:flex sm:justify-around md:p-16">
+        <div>
+            <h3 class="text-2xl text-orange-500">Apply anytime you want to, wherever you are!</h3>
+            <p class="py-4 text-lg">Your application will be processed immediately and you will be informed the next
+                working day.</p>
+        </div>
+        <a href="{{ route('unifihome') }}/#getoffer"
+            class="h-fit rounded-md bg-orange-500 px-10 py-3 text-base text-white hover:bg-orange-700">
+            GET THE OFFER NOW</a>
+
+    </div>
+    <div class="flex w-full justify-around p-4">
         <div class="flex flex-col py-2">
             <a class="h-16 object-contain" href="{{ route('unifihome') }}">
                 <img class='h-full object-contain p-3'

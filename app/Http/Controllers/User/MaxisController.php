@@ -15,12 +15,12 @@ class MaxisController extends Controller
 {
     public function index()
     {
-        $Package = Package::active()->get();
+        $Package = Package::active()->where("service_provider", 'maxis')->get();
         return view(".user.maxis.home", ["TelcoPackages" => $Package]);
     }
     public function index_apply()
     {
-        $Package = Package::active()->get();
+        $Package = Package::active()->where("service_provider", 'maxis')->get();
 
         return view(".user.maxis.apply", ["TelcoPackages" => $Package]);
     }

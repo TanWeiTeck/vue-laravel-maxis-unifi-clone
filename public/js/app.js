@@ -5890,6 +5890,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -24522,7 +24526,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.hide-scroll-bar::-webkit-scrollbar {\n    display: none;\n}\n.right-white-shadow {\n    box-shadow: 0px 0px 50px 30px white;\n    -webkit-clip-path: inset(0px -100px 0px 0px);\n            clip-path: inset(0px -100px 0px 0px);\n}\n.left-white-shadow {\n    box-shadow: 0px 0px 50px 30px white;\n    -webkit-clip-path: inset(0px 0px 0px -100px);\n            clip-path: inset(0px 0px 0px -100px);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.hide-scroll-bar::-webkit-scrollbar {\n    display: none;\n}\n.right-white-shadow {\n    box-shadow: 0px 0px 50px 30px white;\n    -webkit-clip-path: inset(0px -100px 0px 0px);\n            clip-path: inset(0px -100px 0px 0px);\n}\n.left-white-shadow {\n    box-shadow: 0px 0px 50px 30px white;\n    -webkit-clip-path: inset(0px 0px 0px -100px);\n            clip-path: inset(0px 0px 0px -100px);\n}\n.fade-enter-active,\n.fade-leave-active {\n    transition: opacity 0.5s ease;\n}\n.fade-enter,\n.fade-leave-to {\n    opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43566,63 +43570,71 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "relative w-full bg-white" }, [
     _vm.showNav
-      ? _c("div", [
-          _vm.backwardButton
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "z-10 p-1 right-white-shadow absolute h-full flex items-center w-8 bg-white",
-                },
-                [
-                  _c(
+      ? _c(
+          "div",
+          [
+            _c("transition", { attrs: { name: "fade" } }, [
+              _vm.backwardButton
+                ? _c(
                     "div",
                     {
                       staticClass:
-                        "w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300",
-                      on: { click: _vm.scrollBackward },
+                        "ease-linear duration-300 z-10 p-1 right-white-shadow absolute h-full flex items-center w-8 bg-white/90",
                     },
                     [
-                      _c("img", {
-                        staticClass: "rounded-full shadow-2xl",
-                        attrs: {
-                          src: "https://img.icons8.com/ios/50/undefined/circled-chevron-left.png",
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300",
+                          on: { click: _vm.scrollBackward },
                         },
-                      }),
+                        [
+                          _c("img", {
+                            staticClass: "rounded-full shadow-2xl",
+                            attrs: {
+                              src: "https://img.icons8.com/ios/50/undefined/circled-chevron-left.png",
+                            },
+                          }),
+                        ]
+                      ),
                     ]
-                  ),
-                ]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.forwardButton
-            ? _c(
-                "div",
-                {
-                  staticClass:
-                    "z-10 p-1 left-white-shadow absolute right-0 h-full flex items-center w-8 bg-white",
-                },
-                [
-                  _c(
+                  )
+                : _vm._e(),
+            ]),
+            _vm._v(" "),
+            _c("transition", { attrs: { name: "fade" } }, [
+              _vm.forwardButton
+                ? _c(
                     "div",
                     {
                       staticClass:
-                        "w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300",
-                      on: { click: _vm.scrollForward },
+                        "z-10 p-1 left-white-shadow absolute right-0 h-full flex items-center w-8 bg-white/90",
                     },
                     [
-                      _c("img", {
-                        staticClass: "rounded-full shadow-2xl",
-                        attrs: {
-                          src: "https://img.icons8.com/ios/50/undefined/circled-chevron-right.png",
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300",
+                          on: { click: _vm.scrollForward },
                         },
-                      }),
+                        [
+                          _c("img", {
+                            staticClass: "rounded-full shadow-2xl",
+                            attrs: {
+                              src: "https://img.icons8.com/ios/50/undefined/circled-chevron-right.png",
+                            },
+                          }),
+                        ]
+                      ),
                     ]
-                  ),
-                ]
-              )
-            : _vm._e(),
-        ])
+                  )
+                : _vm._e(),
+            ]),
+          ],
+          1
+        )
       : _vm._e(),
     _vm._v(" "),
     _c(

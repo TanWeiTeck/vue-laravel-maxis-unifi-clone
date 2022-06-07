@@ -1,34 +1,38 @@
 <template>
     <div class="relative w-full bg-white">
         <div v-if="showNav">
-            <div
-                v-if="backwardButton"
-                class="z-10 p-1 right-white-shadow absolute h-full flex items-center w-8 bg-white"
-            >
+            <transition name="fade">
                 <div
-                    @click="scrollBackward"
-                    class="w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300"
+                    v-if="backwardButton"
+                    class="ease-linear duration-300 z-10 p-1 right-white-shadow absolute h-full flex items-center w-8 bg-white/90"
                 >
-                    <img
-                        class="rounded-full shadow-2xl"
-                        src="https://img.icons8.com/ios/50/undefined/circled-chevron-left.png"
-                    />
+                    <div
+                        @click="scrollBackward"
+                        class="w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300"
+                    >
+                        <img
+                            class="rounded-full shadow-2xl"
+                            src="https://img.icons8.com/ios/50/undefined/circled-chevron-left.png"
+                        />
+                    </div>
                 </div>
-            </div>
-            <div
-                v-if="forwardButton"
-                class="z-10 p-1 left-white-shadow absolute right-0 h-full flex items-center w-8 bg-white"
-            >
+            </transition>
+            <transition name="fade">
                 <div
-                    @click="scrollForward"
-                    class="w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300"
+                    v-if="forwardButton"
+                    class="z-10 p-1 left-white-shadow absolute right-0 h-full flex items-center w-8 bg-white/90"
                 >
-                    <img
-                        class="rounded-full shadow-2xl"
-                        src="https://img.icons8.com/ios/50/undefined/circled-chevron-right.png"
-                    />
+                    <div
+                        @click="scrollForward"
+                        class="w-10 hover:shadow-xl rounded-full hover:scale-105 duration-300"
+                    >
+                        <img
+                            class="rounded-full shadow-2xl"
+                            src="https://img.icons8.com/ios/50/undefined/circled-chevron-right.png"
+                        />
+                    </div>
                 </div>
-            </div>
+            </transition>
         </div>
         <div
             id="scrollable-container"
@@ -137,5 +141,15 @@ export default {
 .left-white-shadow {
     box-shadow: 0px 0px 50px 30px white;
     clip-path: inset(0px 0px 0px -100px);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>

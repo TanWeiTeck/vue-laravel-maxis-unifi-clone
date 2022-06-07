@@ -11,7 +11,6 @@ class UnifiController extends Controller
     public function index()
     {
         $Packages = Package::where("service_provider", 'unifi')->get();
-        // dd($Packages);
         return view('user.unifi.home', ['Packages' => $Packages]);
     }
 }

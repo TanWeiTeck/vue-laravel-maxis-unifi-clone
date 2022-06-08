@@ -30,7 +30,7 @@ Route::post('/apply', [MaxisController::class, "store"])->name('apply');
 
 // unifi
 Route::get('/unifi', [UnifiController::class, "index"])->name('unifihome');
-Route::get('/unifi/getoffer/doCreate', [UnifiController::class, "index"])->name('unifi.getoffer.doCreate');
+Route::post('/unifi/getoffer/doCreate', [UnifiController::class, "index"])->name('unifi.getoffer.doCreate');
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');

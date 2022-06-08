@@ -1,4 +1,4 @@
-@if (Route::is('home'))
+@if (Route::is('maxishome'))
     <div class="relative z-0 min-h-[10rem] tracking-tighter">
         <img class="min-h-[10rem] object-cover"
             src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/banner-450-edited-latest.png"

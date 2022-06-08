@@ -29,19 +29,29 @@
                 <div class="flex flex-col justify-end p-5 align-text-bottom text-xs">
                     <p class="my-2 font-bold">I am interested in</p>
                     <div>
-                        <input class='my-1' type="radio" name="packagetype" id="type1" value='home'>
+                        <input class='my-1' type="radio" name="product_category" id="type1" value='home'>
                         <label class='my-1' for="type1">Unifi Home</label><br>
-                        <input class='my-1' type="radio" name="packagetype" id="type2" value='biz'>
+                        <input class='my-1' type="radio" name="product_category" id="type2" value='biz'>
                         <label class='my-1' for="type2">Unifi Biz</label><br>
-                        <input class='my-1' type="radio" name="packagetype" id="type3" value='lite'>
+                        <input class='my-1' type="radio" name="product_category" id="type3" value='lite'>
                         <label class='my-1' for="type3">Unifi Lite</label>
                     </div>
                 </div>
             </div>
+            <div class="w-full">
+                @if ($errors->any())
+                    <div class="mb-2 w-full border border-red-400 bg-red-100 p-1 text-xs text-red-600">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
             <button
-                class="m-5 w-fit rounded-full bg-orange-500 py-4 px-10 text-xl text-white shadow-lg hover:bg-orange-700">GET
-                THE OFFER
-                NOW</button>
+                class="m-5 w-fit rounded-full bg-orange-500 py-4 px-10 text-xl text-white shadow-lg hover:bg-orange-700">
+                GET THE OFFER NOW</button>
         </form>
     </div>
 </div>

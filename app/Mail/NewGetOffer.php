@@ -19,7 +19,7 @@ class NewGetOffer extends Mailable
 
     public $Get_Offer;
 
-    public function __construct()
+    public function __construct($Get_Offer)
     {
         $this->Get_Offer = $Get_Offer;
     }

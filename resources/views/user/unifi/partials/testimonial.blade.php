@@ -1,6 +1,5 @@
 <div class="bg-white p-4 md:p-16">
     <h1 class="pb-4 text-center text-3xl font-semibold">What our clients are saying</h1>
-    {{-- <div class="flex flex-col items-center md:flex-row md:justify-around"> --}}
     <slider>
         <div
             class="m-3 flex w-[280px] flex-col items-center justify-between rounded-md bg-orange-400 py-4 px-10 shadow-md">
@@ -71,6 +70,6 @@
         </div>
 
     </slider>
-    {{-- </div> --}}
+
 
 </div>

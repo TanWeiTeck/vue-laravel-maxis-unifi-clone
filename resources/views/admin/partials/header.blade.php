@@ -2,9 +2,10 @@
 
     <a class="flex h-full items-end object-contain" href="{{ url('/dashboard') }}">
 
-        <img class="h-full object-contain"
-            src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/maxis_logo-1.jpg" alt="maxislogo" />
-        <p class="text-xs text-green-900">Admin Tool</p>
+        {{-- <img class="h-full object-contain" src="" alt="telcologo" /> --}}
+        <h1 class="bg-gradient-to-r from-green-500 to-orange-500 bg-clip-text text-5xl font-bold text-transparent">TELCO
+        </h1>
+        <p class="text-xs text-red-900">Admin Tool</p>
     </a>
     @auth
         <a class='rounded border px-3 py-1 text-sm text-gray-600 hover:border-black hover:bg-gray-200 hover:text-black'

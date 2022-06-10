@@ -9,10 +9,16 @@ class Application extends Model
 {
     protected $table = "applications";
     public $fillable = [
+        'type',
         'name',
-        'email',
-        'location',
         'contact',
+        'email',
+        'address1',
+        'address2',
+        'postcode',
+        'city',
+        'service_provider',
+        'product_category',
         'package_id',
         'message',
         'status',

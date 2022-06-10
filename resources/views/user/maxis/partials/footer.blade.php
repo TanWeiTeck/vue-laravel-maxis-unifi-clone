@@ -3,7 +3,7 @@
         <div class="flex flex-col py-2">
             <h1 class="pb-2 text-lg font-bold">USEFUL LINK</h1>
             <a class="pt-1" href="{{ route('maxishome') }}">HOME</a>
-            <a class="pt-1" href="{{ route('apply') }}">APPLY NOW</a>
+            <a class="pt-1" href="{{ route('maxisapply') }}">APPLY NOW</a>
             <a class="pt-1" href="{{ route('maxishome') }}/#fibreplan">MAXIS FIBRE PLANS</a>
             <a class="pt-1" href="{{ route('maxishome') }}/#coverage">COVERAGE CHECK</a>
         </div>

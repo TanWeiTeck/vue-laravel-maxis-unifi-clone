@@ -1,3 +1,8 @@
+@if (Session::has('success'))
+    <div class="w-full border border-blue-400 bg-blue-100 px-1 py-2 text-center text-xs text-blue-600">
+        {{ Session::get('success') }}
+    </div>
+@endif
 <div class="flex h-20 items-center justify-between px-6 shadow-lg">
     <a class="h-full object-contain" href="{{ route('unifihome') }}">
         <img class='h-full object-contain p-4'
@@ -9,8 +14,6 @@
         <a class='flex h-full items-center p-6 duration-300 hover:scale-125'
             href="{{ route('unifihome') }}/#homefibre">UNIFI Home Fibre</a>
         <a class='flex h-full items-center p-6 duration-300 hover:scale-125'
-            href="{{ route('unifihome') }}/#businessfibre">UNIFI Business Fibre</a>
-        <a class='flex h-full items-center p-6 duration-300 hover:scale-125'
-            href="{{ route('unifihome') }}/#checkcoverage">Check Unifi Coverage</a>
+            href="{{ route('unifihome') }}/#getoffer">Get Offer Now</a>
     </div>
 </div>

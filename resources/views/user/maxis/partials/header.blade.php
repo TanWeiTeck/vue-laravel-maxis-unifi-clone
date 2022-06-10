@@ -3,7 +3,7 @@
         {{ Session::get('success') }}
     </div>
 @endif
-<div class="flex h-20 items-center justify-between p-4">
+<div class="flex h-20 items-center justify-between p-4 text-xs xl:text-base">
     <a class="h-full object-contain" href="{{ route('maxishome') }}">
         <img class="h-full object-contain"
             src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/maxis_logo-1.jpg"
@@ -12,8 +12,8 @@
     <div class="hidden font-bold text-blue-900 lg:block">
         <a class="{{ request()->is('/') ? 'text-[#40c706]' : '' }} border-gray-800 px-2 py-3 hover:text-[#40c706]"
             href="{{ route('maxishome') }}">HOME</a>
-        <a class="{{ request()->is('apply') ? 'text-[#40c706]' : '' }} border-gray-800 px-2 py-3 hover:text-[#40c706]"
-            href="{{ route('apply') }}">APPLY NOW</a>
+        <a class="{{ request()->is('maxisapply') ? 'text-[#40c706]' : '' }} border-gray-800 px-2 py-3 hover:text-[#40c706]"
+            href="{{ route('maxisapply') }}">APPLY NOW</a>
         <a class="border-gray-800 px-2 py-3 hover:text-[#40c706]" href="{{ route('maxishome') }}/#fibreplan">MAXIS
             FIBRE
             PLANS</a>

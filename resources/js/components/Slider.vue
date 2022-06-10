@@ -39,7 +39,7 @@
             @scroll="configureNav()"
             class="hide-scroll-bar flex overflow-x-auto shadow-md scroll-smooth"
         >
-            <div id="scrollable" class="flex min-w-max">
+            <div id="scrollable" class="flex">
                 <slot />
             </div>
         </div>

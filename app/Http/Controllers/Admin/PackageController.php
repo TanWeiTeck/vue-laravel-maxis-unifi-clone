@@ -17,13 +17,13 @@ class PackageController extends Controller
 
     public function create()
     {
-        $provides = [
+        $providers = [
             'maxis' => 'Maxis',
             'unifi' => 'Unifi',
             'time' => 'Time',
         ];
 
-        return view('admin.packages.add', ['provides' => $provides]);
+        return view('admin.packages.add', ['providers' => $providers]);
     }
 
     public function doCreate(Request $request)
@@ -44,7 +44,7 @@ class PackageController extends Controller
 
     public function show($id)
     {
-        $provides = [
+        $providers = [
             'maxis' => 'Maxis',
             'unifi' => 'Unifi',
             'time' => 'Time',
@@ -53,7 +53,7 @@ class PackageController extends Controller
 
         $data = Package::find($id);
 
-        return view('admin.packages.edit', ['data' => $data, 'provides' => $provides]);
+        return view('admin.packages.edit', ['data' => $data, 'providers' => $providers]);
     }
 
     public function doUpdate(Request $request, $id)

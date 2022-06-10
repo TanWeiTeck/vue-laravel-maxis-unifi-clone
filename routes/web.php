@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\MaxisController;
+use App\Http\Controllers\User\TelcoController;
 use App\Http\Controllers\User\UnifiController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -22,15 +22,15 @@ use App\Http\Controllers\Admin\Auth\VerificationController;
 |
 */
 
-// maxis
-Route::get('/', [MaxisController::class, "index"])->name('maxishome');
-Route::post('/coverage/doCreate', [MaxisController::class, "coverage_doCreate"])->name('coverage.doCreate');
-Route::get('/apply', [MaxisController::class, "index_apply"])->name('apply');
-Route::post('/apply', [MaxisController::class, "store"])->name('apply');
+Route::get('/maxis', [TelcoController::class, "maxis_index"])->name('maxishome');
+Route::get('/maxis/apply', [TelcoController::class, "maxis_apply"])->name('maxisapply');
 
-// unifi
-Route::get('/unifi', [UnifiController::class, "index"])->name('unifihome');
-Route::post('/unifi/getoffer/doCreate', [UnifiController::class, "index"])->name('unifi.getoffer.doCreate');
+Route::get('/unifi', [TelcoController::class, "unifi_index"])->name('unifihome');
+Route::get('/unifi/apply', [TelcoController::class, "unifi_apply"])->name('unifiapply');
+
+Route::post('/apply', [TelcoController::class, "store"])->name('apply');
+
+
 
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -64,4 +64,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
     Route::post('packages/edit/{id}', [PackageController::class, 'doUpdate'])->name('packages.doUpdate');
     Route::get('packages/delete/{id}', [PackageController::class, 'doDelete'])->name('packages.doDelete');
+
+    Route::get('/filter', [ApplicationController::class, "filter"])->name('filter');
 });

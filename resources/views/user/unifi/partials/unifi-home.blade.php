@@ -1,4 +1,4 @@
-<div class="bg-orange-500 text-sm font-semibold text-white md:flex">
+<div id='homefibre' class="bg-orange-500 text-sm font-semibold text-white md:flex">
     <div class="flex flex-grow flex-col items-center justify-center p-4 md:items-end md:p-10">
         <div class="w-64">
             <h3 class="text-2xl">Unifi Home</h3>
@@ -31,9 +31,9 @@
                     <hr class="border-1 w-full border-white">
                     <p class="p-3 text-center text-[10px]">{{ $package['description'] }}</p>
                 </div>
-                <div class="flex justify-center bg-orange-500 p-6">
-                    <button class="rounded-full bg-blue-800 px-5 py-2 text-xs text-white">GET IT NOW</button>
-                </div>
+                <a href="{{ route('unifiapply') }}" class="flex justify-center bg-orange-500 p-6">
+                    <button action class="rounded-full bg-blue-800 px-5 py-2 text-xs text-white">GET IT NOW</button>
+                </a>
             </div>
         @endforeach
     </div>

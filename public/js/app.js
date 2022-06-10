@@ -5428,6 +5428,9 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
     },
     labels: {
       type: Array
+    },
+    packages: {
+      type: Array
     }
   },
   data: function data() {
@@ -5436,7 +5439,7 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
       chartData: {
         labels: this.labels,
         datasets: [{
-          backgroundColor: ["#41B883", "#23F300", "#E46651", "#00D8FF", "#DD1B16"],
+          backgroundColor: ["#41B883", "#23F300", "#E46651", "#00D8FF", "#DD1B16", "#808080"],
           data: [],
           hoverOffset: 10,
           cutout: 80,
@@ -5450,17 +5453,20 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
     };
   },
   methods: {
-    filterData: function filterData(id) {
+    filterData: function filterData(labels) {
       return this.data.filter(function (i) {
-        return i.package_id == id;
+        return i.package_id == labels;
       });
     },
     getTotal: function getTotal() {
-      var id = ["mx030089", "mx100129", "mx300149", "mx500219", "mx800299"];
+      var labels = this.packages.map(function (i) {
+        return i.package_id;
+      });
+      this.chartData.labels = labels;
 
-      for (var i = 0; i < id.length; i++) {
-        var maxis = this.filterData(id[i]).length;
-        this.chartData.datasets[0].data.push(maxis);
+      for (var i = 0; i < labels.length; i++) {
+        var value = this.filterData(labels[i]).length;
+        this.chartData.datasets[0].data.push(value);
       } // this.dataArray = newData;
       // console.log(typeof this.dataArray);
       // let maxis = this.filterData("MX-030089");
@@ -5471,6 +5477,8 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
   },
   mounted: function mounted() {
     // console.log(this.data.filter((x) => x.package_id === "MX-030089"));
+    // console.log(this.packages);
+    // console.log(this.data);
     this.getTotal(); // this.getTotal();
     // console.log(this.data.package_id);
   }
@@ -5578,29 +5586,50 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
         return [];
       }
     },
+    label: {
+      type: Array
+    },
+    color: {
+      type: Array
+    },
     data: {
       type: Array // default: [],
 
     }
   },
   data: function data() {
-    var _ref;
-
     return {
       chartData: {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [(_ref = {
-          label: "Maxis",
-          backgroundColor: "#40c706",
-          data: [],
-          fill: {
-            target: "origin",
-            above: "rgb(255, 0, 0)",
-            // Area will be red above the origin
-            below: "rgb(0, 0, 255)" // And blue below the origin
-
-          }
-        }, _defineProperty(_ref, "backgroundColor", "#40c706"), _defineProperty(_ref, "hoverBackgroundColor", "#40c706"), _defineProperty(_ref, "fill", true), _defineProperty(_ref, "tension", 0.3), _ref)]
+        datasets: [// {
+          //     label: "",
+          //     backgroundColor: "#1E40AF",
+          //     data: [],
+          //     fill: {
+          //         target: "origin",
+          //         above: "rgb(255, 0, 0)", // Area will be red above the origin
+          //         below: "rgb(0, 0, 255)", // And blue below the origin
+          //     },
+          //     backgroundColor: "#1E40AF",
+          //     hoverBackgroundColor: "#1E40AF",
+          //     fill: true,
+          //     tension: 0.3,
+          // },
+          // {
+          //     label: "Unifi",
+          //     backgroundColor: "#f87979",
+          //     data: [10, 2, 7, 4, 5, 9, 7, 8, 5, 10, 11, 12],
+          //     fill: {
+          //         target: "origin",
+          //         above: "rgb(255, 0, 0)", // Area will be red above the origin
+          //         below: "rgb(0, 0, 255)", // And blue below the origin
+          //     },
+          //     backgroundColor: "#fd7e14",
+          //     hoverBackgroundColor: "#fd7e14",
+          //     fill: true,
+          //     tension: 0.3,
+          // },
+        ]
       },
       chartOptions: {
         responsive: true,
@@ -5609,24 +5638,44 @@ chart_js__WEBPACK_IMPORTED_MODULE_0__.Chart.register(chart_js__WEBPACK_IMPORTED_
     };
   },
   methods: {
-    filterData: function filterData(month) {
-      return this.data.filter(function (i) {
+    filterData: function filterData(data, month) {
+      return data.filter(function (i) {
         return i.month == month;
       });
     },
-    getMonthlyTotal: function getMonthlyTotal() {
+    getDataTotal: function getDataTotal(data) {
       var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      var monthlyValue = [];
 
       for (var i = 0; i < months.length; i++) {
-        var monthlyData = this.filterData(months[i]);
+        var monthlyData = this.filterData(data, months[i]);
         var monthlyCount = monthlyData.length > 0 ? monthlyData[0].count : "";
-        this.chartData.datasets[0].data.push(monthlyCount);
+        monthlyValue.push(monthlyCount);
+      }
+
+      return monthlyValue;
+    },
+    getMonthlyTotal: function getMonthlyTotal() {
+      for (var i = 0; i < this.data.length; i++) {
+        var _this$chartData$datas;
+
+        this.chartData.datasets.push((_this$chartData$datas = {
+          label: this.label[i],
+          backgroundColor: this.color[i],
+          data: this.getDataTotal(this.data[i]),
+          fill: {
+            target: "origin",
+            above: "rgb(255, 0, 0)",
+            // Area will be red above the origin
+            below: "rgb(0, 0, 255)" // And blue below the origin
+
+          }
+        }, _defineProperty(_this$chartData$datas, "backgroundColor", this.color[i]), _defineProperty(_this$chartData$datas, "hoverBackgroundColor", this.color[i]), _defineProperty(_this$chartData$datas, "fill", true), _defineProperty(_this$chartData$datas, "tension", 0.3), _this$chartData$datas));
       }
     }
   },
   mounted: function mounted() {
     this.getMonthlyTotal();
-    console.log(this.chartData.datasets[0].data);
   }
 });
 
@@ -43420,7 +43469,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "border-t border-gray-800 px-3 py-3 hover:text-white",
-            attrs: { href: "/" },
+            attrs: { href: "/maxis" },
           },
           [_vm._v("HOME")]
         ),
@@ -43429,7 +43478,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "border-t border-gray-800 px-3 py-3 hover:text-white",
-            attrs: { href: "/apply" },
+            attrs: { href: "/maxis/apply" },
           },
           [_vm._v("APPLY NOW")]
         ),
@@ -43438,7 +43487,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "border-t border-gray-800 px-3 py-3 hover:text-white",
-            attrs: { href: "/#fibreplan" },
+            attrs: { href: "/maxis/#fibreplan" },
           },
           [_vm._v("MAXIS FIBRE PLANS")]
         ),
@@ -43447,7 +43496,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "border-t border-gray-800 px-3 py-3 hover:text-white",
-            attrs: { href: "/#coverage" },
+            attrs: { href: "/maxis/#coverage" },
           },
           [_vm._v("COVERAGE CHECK")]
         ),
@@ -43652,7 +43701,7 @@ var render = function () {
       [
         _c(
           "div",
-          { staticClass: "flex min-w-max", attrs: { id: "scrollable" } },
+          { staticClass: "flex", attrs: { id: "scrollable" } },
           [_vm._t("default")],
           2
         ),

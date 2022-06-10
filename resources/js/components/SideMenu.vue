@@ -27,22 +27,22 @@
             >
                 <a
                     class="border-t border-gray-800 px-3 py-3 hover:text-white"
-                    href="/"
+                    href="/maxis"
                     >HOME</a
                 >
                 <a
                     class="border-t border-gray-800 px-3 py-3 hover:text-white"
-                    href="/apply"
+                    href="/maxis/apply"
                     >APPLY NOW</a
                 >
                 <a
                     class="border-t border-gray-800 px-3 py-3 hover:text-white"
-                    href="/#fibreplan"
+                    href="/maxis/#fibreplan"
                     >MAXIS FIBRE PLANS</a
                 >
                 <a
                     class="border-t border-gray-800 px-3 py-3 hover:text-white"
-                    href="/#coverage"
+                    href="/maxis/#coverage"
                     >COVERAGE CHECK</a
                 >
                 <a

@@ -7,14 +7,40 @@
 
                 @include('admin.components.status-card', [
                     ($label = 'Application'),
-                    ($data = $Application),
+                    ($title = 'Maxis'),
+                    ($data = $Applications['maxis']),
+                    ($icon =
+                        'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-applicants-recruitment-agency-flaticons-lineal-color-flat-icons-3.png'),
+                    ($link = route('applications.list')),
+                ])
+                @include('admin.components.status-card', [
+                    ($label = 'Application'),
+                    ($title = 'Unifi'),
+                    ($data = $Applications['unifi']),
+                    ($icon =
+                        'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-applicants-recruitment-agency-flaticons-lineal-color-flat-icons-3.png'),
+                    ($link = route('applications.list')),
+                ])
+                @include('admin.components.status-card', [
+                    ($label = 'Application'),
+                    ($title = 'Other'),
+                    ($data = $Applications['other']),
                     ($icon =
                         'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-applicants-recruitment-agency-flaticons-lineal-color-flat-icons-3.png'),
                     ($link = route('applications.list')),
                 ])
                 @include('admin.components.status-card', [
                     ($label = 'Telco Pakages'),
-                    ($data = $packages),
+                    ($title = 'Maxis'),
+                    ($data = $Packages['maxis']),
+                    ($icon =
+                        'https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png'),
+                    ($link = route('packages.list')),
+                ])
+                @include('admin.components.status-card', [
+                    ($label = 'Telco Pakages'),
+                    ($title = 'Unifi'),
+                    ($data = $Packages['unifi']),
                     ($icon =
                         'https://img.icons8.com/external-itim2101-blue-itim2101/64/000000/external-packages-logistics-and-delivery-itim2101-blue-itim2101.png'),
                     ($link = route('packages.list')),
@@ -22,17 +48,31 @@
             </div>
 
             <div class="border">
-                @include('admin.components.categories-doughnut', [($data = $Application)])
+                @component('admin.components.presentation-box', ['label' => 'Maxis Application by Package'])
+                    @slot('slot')
+                        <doughnut-chart class="flex h-64 w-full items-center justify-center bg-gray-100"
+                            :data="{{ $Applications['maxis'] }}" :packages="{{ $Packages['maxis'] }}" />
+                    @endslot
+                @endcomponent
+                @component('admin.components.presentation-box', ['label' => 'Unifi Application by Package'])
+                    @slot('slot')
+                        <doughnut-chart class="flex h-64 w-full items-center justify-center bg-gray-100"
+                            :data="{{ $Applications['unifi'] }}" :packages="{{ $Packages['unifi'] }}" />
+                    @endslot
+                @endcomponent
             </div>
             <div class="border">
-                @include('admin.components.recent-list', [($data = $Application)])
+                @include('admin.components.recent-list', [($data = $Applications['all'])])
             </div>
         </div>
         <div class="flex-1 border">
-            <p class="pt-4 text-center text-xl">Line Graph</p>
             @component('admin.components.presentation-box', ['label' => 'Monthly Application '])
                 @slot('slot')
-                    <line-chart class="flex h-64 w-full items-center justify-center" :data="{{ $applicationByMonth }}" />
+                    <line-chart class="flex h-64 w-full items-center justify-center" :label="['all', 'maxis', 'unifi']"
+                        :color="['#000000', '#40c706', '#F97316', ]"
+                        :data="[{{ $Applications['allByMonth'] }}, {{ $Applications['maxisByMonth'] }},
+                            {{ $Applications['unifiByMonth'] }}
+                        ]" />
                 @endslot
             @endcomponent
         </div>

@@ -10,14 +10,10 @@
                     Add New Application
                 </h1>
 
-
-
                 {{-- Apply Form --}}
-
                 <form action="{{ route('applications.doCreate') }}" method="POST" class="flex flex-col justify-center p-4">
                     @csrf
-
-
+                    <input class=hidden name="type" value="application">
                     <div class="flex space-x-4">
                         <div class="flex w-full flex-col">
                             <div class="flex w-full flex-col justify-between md:flex-row">
@@ -25,49 +21,53 @@
                                     <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Name</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='name'
                                         placeholder="name" value="{{ old('name') }}">
-
                                 </div>
                                 <div class="flex w-full flex-col sm:px-4">
                                     <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Email</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='email'
                                         placeholder="email" value="{{ old('email') }}">
-
                                 </div>
                             </div>
-
                             <div class="flex w-full flex-col justify-between md:flex-row">
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Location</label>
-                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='location'
-                                        placeholder="location" value="{{ old('location') }}">
-
+                                <div class="flex w-full flex-col justify-between sm:px-4">
+                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Address</label>
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='address1'
+                                        placeholder="Address line 1" value="{{ old('address1') }}">
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='address2'
+                                        placeholder="Address line 2" value="{{ old('address2') }}">
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='postcode'
+                                        placeholder="Postcode" value="{{ old('postcode') }}">
+                                    <input class="rounded-lg border px-3 py-2" type="text" name='city' placeholder="City"
+                                        value="{{ old('city') }}">
                                 </div>
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Contact</label>
-                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='contact'
-                                        placeholder="contact" value="{{ old('contact') }}">
-                                </div>
-                            </div>
-
-
-                            <div class="flex w-full flex-col justify-between md:flex-row">
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Package</label>
-                                    <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
-                                        @foreach ($Packages as $package)
-                                            <option value="{{ $package['package_id'] }}">
-                                                {{ $package['package_id'] }} - Maxis Home Fibre
-                                                {{ $package['internet_speed'] }} -
-                                                RM{{ $package['price'] }}</option>
-                                        @endforeach
-
-                                    </select>
-
-                                </div>
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Message</label>
-                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='message'
-                                        placeholder="message" value="{{ old('message') }}">
+                                <div class="w-full">
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Contact</label>
+                                        <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='contact'
+                                            placeholder="contact" value="{{ old('contact') }}">
+                                    </div>
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Provider</label>
+                                        <select class="rounded-lg border px-3 py-2" type="text" name="service_provider">
+                                            @foreach ($Providers as $provider)
+                                                <option value="{{ $provider }}"
+                                                    @if ($provider == old('service_provider')) selected='selected' @endif>
+                                                    {{ $provider }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Package</label>
+                                        <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
+                                            @foreach ($Packages as $package)
+                                                <option value="{{ $package['package_id'] }}"
+                                                    @if ($package['package_id'] == old('package_id')) selected='selected' @endif>
+                                                    {{ $package['package_id'] }} - Home Fibre
+                                                    {{ $package['internet_speed'] }} -
+                                                    RM{{ $package['price'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="flex w-full flex-col sm:px-4">
@@ -91,7 +91,6 @@
                             @endif
                         </div>
                         {{-- end error message --}}
-
                         <button
                             class="mt-3 rounded-md bg-[#40c706] px-7 py-2 font-extrabold text-white duration-300 hover:scale-95 hover:bg-blue-400 hover:text-black">ADD
                         </button>

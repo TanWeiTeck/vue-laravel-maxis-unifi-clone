@@ -2,7 +2,6 @@
 
 @section('content')
     @include('user.unifi.partials.hero')
-    {{-- @include('user.unifi.partials.slider') --}}
     @include('user.unifi.partials.get-offer')
     @include('user.unifi.partials.benefit')
     @include('user.unifi.partials.unifi-home')

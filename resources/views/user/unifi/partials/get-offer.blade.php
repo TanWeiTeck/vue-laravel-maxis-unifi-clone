@@ -1,39 +1,50 @@
 <div id="getoffer" class="flex w-full justify-between">
-    <div class="hidden flex-grow basis-1 md:block">
-        <img src="https://d30itml3t0pwpf.cloudfront.net/api/v3/medias/15464046/image/opt/1600x1599%3E/1623723997-ccd7e2f8"
+    <div class="hidden flex-grow basis-1 border md:block">
+        <img class="h-full w-full object-cover"
+            src="https://d30itml3t0pwpf.cloudfront.net/api/v3/medias/15464046/image/opt/1600x1599%3E/1623723997-ccd7e2f8"
             alt="couple-looking-at-laptop">
     </div>
-    <div class="flex flex-grow basis-1 flex-col items-center justify-center p-4">
+    <div class="flex flex-grow basis-1 flex-col items-center justify-center py-2 px-4">
         <div class="my-4 flex flex-col items-end justify-end">
-            <img class="my-5 h-16"
+            <img class="my-2 h-12"
                 src="https://d30itml3t0pwpf.cloudfront.net/api/v3/medias/15347435/image/opt/original/1615199123-1d813592"
                 alt="tm-logo">
-            <h1 class='text-3xl'>Rugi Tak Cuba!</h1>
-            <h1 class='text-3xl'>30 Days Free UNIFI Home</h1>
-            <p class="text-right">Submit your interest and let out consultant contact you</p>
+            <h1 class='text-2xl'>Rugi Tak Cuba!</h1>
+            <h1 class='text-2xl'>30 Days Free UNIFI Home</h1>
+            <p class="text-right text-sm">Submit your interest and let our consultant contact you</p>
         </div>
-        <form class="flex flex-col items-center" action="{{ route('unifi.getoffer.doCreate') }}" method="POST">
+        <form class="flex flex-col items-center" action="{{ route('apply') }}" method="POST">
             @csrf
+            <input class=hidden name="type" value="get_offer">
+            <input class=hidden name="service_provider" value="unifi">
             <div class="flex flex-col md:flex-row">
-                <div class="flex flex-col text-sm">
-                    <input class='my-2 w-80 rounded-md border p-2 shadow-inner' type="text" name="name"
+                <div class="flex flex-col text-xs">
+                    <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="name"
                         placeholder="Full Name">
-                    <input class='my-2 w-80 rounded-md border p-2 shadow-inner' type="text" name="contact"
+                    <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="contact"
                         placeholder="Phone Number">
-                    <input class='my-2 w-80 rounded-md border p-2 shadow-inner' type="email" name="email"
+                    <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="email" name="email"
                         placeholder="Email">
-                    <input class='my-2 w-80 rounded-md border p-2 shadow-inner' type="text" name="address"
-                        placeholder="Full Address">
+                    <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="address1"
+                        placeholder="Address line 1">
+                    <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="address2"
+                        placeholder="Address line 2">
+                    <div class="flex w-80 justify-between">
+                        <input class='my-1 rounded-md border p-2 shadow-inner' type="text" name="postcode"
+                            placeholder="Postcode">
+                        <input class='my-1 rounded-md border p-2 shadow-inner' type="text" name="city"
+                            placeholder="City">
+                    </div>
                 </div>
 
-                <div class="flex flex-col justify-end p-5 align-text-bottom text-xs">
+                <div class="flex flex-col justify-end p-2 align-text-bottom text-xs">
                     <p class="my-2 font-bold">I am interested in</p>
                     <div>
-                        <input class='my-1' type="radio" name="product_category" id="type1" value='home'>
+                        <input class='my-1' type="radio" name="product_category" id="type1" value='unifihome' checked>
                         <label class='my-1' for="type1">Unifi Home</label><br>
-                        <input class='my-1' type="radio" name="product_category" id="type2" value='biz'>
+                        <input class='my-1' type="radio" name="product_category" id="type2" value='unifibiz'>
                         <label class='my-1' for="type2">Unifi Biz</label><br>
-                        <input class='my-1' type="radio" name="product_category" id="type3" value='lite'>
+                        <input class='my-1' type="radio" name="product_category" id="type3" value='unifilite'>
                         <label class='my-1' for="type3">Unifi Lite</label>
                     </div>
                 </div>
@@ -49,8 +60,8 @@
                     </div>
                 @endif
             </div>
-            <button
-                class="m-5 w-fit rounded-full bg-orange-500 py-4 px-10 text-xl text-white shadow-lg hover:bg-orange-700">
+            <button type="submit"
+                class="m-3 w-fit rounded-full bg-orange-500 py-3 px-10 text-xl text-white shadow-lg hover:bg-orange-700">
                 GET THE OFFER NOW</button>
         </form>
     </div>

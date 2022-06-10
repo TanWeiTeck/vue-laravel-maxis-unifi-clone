@@ -14,7 +14,7 @@
     </div>
 @endif
 
-@if (Route::is('apply'))
+@if (Route::is('maxisapply'))
     <div class="relative min-h-[10rem] tracking-tighter">
         <img class="max-h-[20rem] w-screen object-fill"
             src="https://assignmentwritinghelp-65.webself.net/file/si444887/writing-background-cover-letter-writing-service-background-fi7123716.jpg"

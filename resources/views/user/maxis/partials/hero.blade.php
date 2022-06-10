@@ -1,4 +1,4 @@
-@if (Route::is('home'))
+@if (Route::is('maxishome'))
     <div class="relative z-0 min-h-[10rem] tracking-tighter">
         <img class="min-h-[10rem] object-cover"
             src="https://www.maxis-fibreinternet.com.my/wp-content/uploads/2021/10/banner-450-edited-latest.png"
@@ -14,7 +14,7 @@
     </div>
 @endif
 
-@if (Route::is('apply'))
+@if (Route::is('maxisapply'))
     <div class="relative min-h-[10rem] tracking-tighter">
         <img class="max-h-[20rem] w-screen object-fill"
             src="https://assignmentwritinghelp-65.webself.net/file/si444887/writing-background-cover-letter-writing-service-background-fi7123716.jpg"

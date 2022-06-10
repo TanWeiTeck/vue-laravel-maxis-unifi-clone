@@ -66,6 +66,9 @@ export default {
         labels: {
             type: Array,
         },
+        packages: {
+            type: Array,
+        },
     },
     data() {
         return {
@@ -80,6 +83,7 @@ export default {
                             "#E46651",
                             "#00D8FF",
                             "#DD1B16",
+                            "#808080",
                         ],
                         data: [],
                         hoverOffset: 10,
@@ -95,20 +99,15 @@ export default {
         };
     },
     methods: {
-        filterData(id) {
-            return this.data.filter((i) => i.package_id == id);
+        filterData(labels) {
+            return this.data.filter((i) => i.package_id == labels);
         },
         getTotal() {
-            let id = [
-                "mx030089",
-                "mx100129",
-                "mx300149",
-                "mx500219",
-                "mx800299",
-            ];
-            for (let i = 0; i < id.length; i++) {
-                let maxis = this.filterData(id[i]).length;
-                this.chartData.datasets[0].data.push(maxis);
+            let labels = this.packages.map((i) => i.package_id);
+            this.chartData.labels = labels;
+            for (let i = 0; i < labels.length; i++) {
+                let value = this.filterData(labels[i]).length;
+                this.chartData.datasets[0].data.push(value);
             }
             // this.dataArray = newData;
             // console.log(typeof this.dataArray);
@@ -119,6 +118,8 @@ export default {
     },
     mounted() {
         // console.log(this.data.filter((x) => x.package_id === "MX-030089"));
+        // console.log(this.packages);
+        // console.log(this.data);
         this.getTotal();
         // this.getTotal();
         // console.log(this.data.package_id);

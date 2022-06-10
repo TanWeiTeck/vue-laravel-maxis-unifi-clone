@@ -31,6 +31,6 @@ class NewApplication extends Mailable
      */
     public function build()
     {
-        return $this->from('tanwt08180@gmail.com')->view('user.email')->subject('New Application - Maxis Fibre');
+        return $this->from('tanwt08180@gmail.com')->view('user.email')->subject('New Application');
     }
 }

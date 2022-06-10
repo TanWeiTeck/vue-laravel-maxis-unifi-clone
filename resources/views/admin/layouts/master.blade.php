@@ -36,13 +36,12 @@
                 </div>
             </div>
         </div>
-        <div class="min-h-[461px] sm:min-h-[221px]"></div>
+        <div class="min-h-[65px] sm:min-h-[49px]"></div>
         {{-- Footer --}}
         <div class="absolute bottom-0 w-full">
             @include('admin.partials.footer')
         </div>
     </div>
-    @include('admin.partials.js-variable')
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 

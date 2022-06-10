@@ -5,22 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Application extends Model
+class Get_Offer extends Model
 {
-    protected $table = "applications";
+    protected $table = 'get_offer';
     public $fillable = [
-        'type',
         'name',
         'contact',
         'email',
-        'address1',
-        'address2',
-        'postcode',
-        'city',
-        'service_provider',
+        'address',
         'product_category',
-        'package_id',
-        'message',
         'status',
         'remark'
     ];

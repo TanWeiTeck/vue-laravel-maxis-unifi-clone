@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\MaxisController;
+use App\Http\Controllers\User\TelcoController;
+use App\Http\Controllers\User\UnifiController;
+use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Auth\LoginController;
-use App\Http\Controllers\Admin\Auth\LogoutController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\Auth\LogoutController;
+use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\Auth\VerificationController;
 
 /*
@@ -21,10 +22,14 @@ use App\Http\Controllers\Admin\Auth\VerificationController;
 |
 */
 
-Route::get('/', [MaxisController::class, "index"])->name('home');
-Route::post('/coverage/doCreate', [MaxisController::class, "coverage_doCreate"])->name('coverage.doCreate');
-Route::get('/apply', [MaxisController::class, "index_apply"])->name('apply');
-Route::post('/apply', [MaxisController::class, "store"])->name('apply');
+Route::get('/maxis', [TelcoController::class, "maxis_index"])->name('maxishome');
+Route::get('/maxis/apply', [TelcoController::class, "maxis_apply"])->name('maxisapply');
+
+Route::get('/unifi', [TelcoController::class, "unifi_index"])->name('unifihome');
+Route::get('/unifi/apply', [TelcoController::class, "unifi_apply"])->name('unifiapply');
+
+Route::post('/apply', [TelcoController::class, "store"])->name('apply');
+
 
 
 
@@ -46,11 +51,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/applicationlist', [ApplicationListController::class, 'index'])->name('applicationlist');
-    Route::get('/addapplication', [ApplicationListController::class, 'add'])->name('addapplication');
-    Route::post('/addapplication', [ApplicationListController::class, 'create']);
-    Route::get('deleteapplication/{id}', [ApplicationListController::class, 'delete']);
-
     Route::get('/applications/list', [ApplicationController::class, 'index'])->name('applications.list');
     Route::get('/applications/create', [ApplicationController::class, 'create'])->name('applications.create');
     Route::post('/applications/doCreate', [ApplicationController::class, 'doCreate'])->name('applications.doCreate');
@@ -58,12 +58,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/applications/doUpdate/{id}', [ApplicationController::class, 'doUpdate'])->name('applications.doUpdate');
     Route::get('/applications/delete/{id}', [ApplicationController::class, 'doDelete'])->name('applications.doDelete');
 
-
-
     Route::get('/packages/list', [PackageController::class, 'index'])->name('packages.list');
     Route::get('/packages/create', [PackageController::class, 'create'])->name('packages.create');
     Route::post('/packages/doCreate', [PackageController::class, 'doCreate'])->name('packages.doCreate');
     Route::get('/packages/show/{id}', [PackageController::class, 'show'])->name('packages.show');
     Route::post('packages/edit/{id}', [PackageController::class, 'doUpdate'])->name('packages.doUpdate');
     Route::get('packages/delete/{id}', [PackageController::class, 'doDelete'])->name('packages.doDelete');
+
+    Route::get('/filter', [ApplicationController::class, "filter"])->name('filter');
 });

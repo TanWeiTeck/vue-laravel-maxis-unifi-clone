@@ -1,5 +1,5 @@
 {{-- services --}}
-<div class="pt-6">
+<div class="px-4 pt-6">
     <h1 class="py-4 text-center text-3xl font-bold text-blue-900">
         Register Now with MaxisONE Home Fibre Plans
     </h1>

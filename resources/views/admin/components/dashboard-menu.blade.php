@@ -18,7 +18,7 @@
                     <p class="pt-2 text-center">Application</p>
                 </a>
                 <div
-                    class="top-0 left-[112px] hidden min-h-full min-w-max flex-col space-y-4 rounded-r-md bg-blue-100 py-2 px-4 shadow-md group-hover:absolute group-hover:flex">
+                    class="top-0 left-[112px] hidden min-h-fit min-w-max flex-col space-y-4 rounded-r-md bg-blue-100 py-2 px-4 shadow-md group-hover:absolute group-hover:flex">
                     <a class="text-sm hover:text-blue-700" href="{{ route('applications.create') }}">+ Add New
                         Application</a>
                 </div>
@@ -32,9 +32,8 @@
                     <p class="pt-2 text-center">Package</p>
                 </a>
                 <div
-                    class="top-0 left-[112px] hidden min-h-full min-w-max flex-col space-y-4 rounded-r-md bg-blue-100 py-2 px-4 shadow-md group-hover:absolute group-hover:flex">
+                    class="top-0 left-[112px] hidden min-h-fit min-w-max flex-col space-y-4 rounded-r-md bg-blue-100 py-2 px-4 shadow-md group-hover:absolute group-hover:flex">
                     <a class="text-sm hover:text-blue-700" href="{{ route('packages.create') }}">+ Add New Package</a>
-
                 </div>
             </div>
 

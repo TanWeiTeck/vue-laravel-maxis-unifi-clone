@@ -31,6 +31,7 @@ Vue.component(
     require("./components/DoughnutChart.vue").default
 );
 Vue.component("modal-blur", require("./components/ModalBlur.vue").default);
+Vue.component("slider", require("./components/Slider.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

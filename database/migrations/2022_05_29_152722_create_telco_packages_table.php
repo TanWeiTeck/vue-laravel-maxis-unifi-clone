@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('discount');
             $table->integer('discounted_price');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

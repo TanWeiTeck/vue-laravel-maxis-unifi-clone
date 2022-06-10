@@ -20,7 +20,7 @@
                                 <div class="flex w-full flex-col sm:px-4">
                                     <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Service Provider</label>
                                     <select class="rounded-lg border px-3 py-2" type="text" name="service_provider">
-                                        @foreach ($provides as $key => $value)
+                                        @foreach ($providers as $key => $value)
                                             <option value="{{ $key }}">
                                                 {{ $value }}</option>
                                         @endforeach
@@ -46,7 +46,6 @@
                                         value="{{ old('price') }}" placeholder="price">
                                 </div>
                             </div>
-
 
                             <div class="flex w-full flex-col justify-between md:flex-row">
                                 <div class="flex w-full flex-col sm:px-4">

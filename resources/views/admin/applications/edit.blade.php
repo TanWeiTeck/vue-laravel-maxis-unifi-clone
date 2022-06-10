@@ -10,8 +10,6 @@
                     Update - #{{ $data['id'] }}
                 </h1>
 
-
-
                 {{-- Apply Form --}}
 
                 <form action="{{ route('applications.doUpdate', ['id' => $data['id']]) }}" method="POST"
@@ -19,6 +17,7 @@
                     @csrf
 
                     <input hidden name="id" value="{{ $data->id }}">
+                    <input hidden name="type" value="{{ $data->type }}">
 
                     <div class="flex space-x-4">
                         <div class="flex w-full flex-col">
@@ -38,34 +37,54 @@
                             </div>
 
                             <div class="flex w-full flex-col justify-between md:flex-row">
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Location</label>
-                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='location'
-                                        placeholder="" value="{{ $data['location'] }}">
+                                <div class="flex w-full flex-col justify-between sm:px-4">
+                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Address</label>
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='address1'
+                                        placeholder="Address line 1" value="{{ $data['address1'] }}">
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='address2'
+                                        placeholder="Address line 2" value="{{ $data['address2'] }}">
+                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='postcode'
+                                        placeholder="Postcode" value="{{ $data['postcode'] }}">
+                                    <input class="rounded-lg border px-3 py-2" type="text" name='city' placeholder="City"
+                                        value="{{ $data['city'] }}">
 
                                 </div>
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Contact</label>
-                                    <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='contact'
-                                        placeholder="" value="{{ $data['contact'] }}">
+
+
+                                <div class="w-full">
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Contact</label>
+                                        <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='contact'
+                                            placeholder="" value="{{ $data['contact'] }}">
+                                    </div>
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Provider</label>
+                                        <select class="rounded-lg border px-3 py-2" type="text" name="service_provider">
+                                            @foreach ($Providers as $provider)
+                                                <option value="{{ $provider }}"
+                                                    @if ($provider == $data['service_provider']) selected='selected' @endif>
+                                                    {{ $provider }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="flex w-full flex-col sm:px-4">
+                                        <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Package</label>
+                                        <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
+                                            @foreach ($packages as $package)
+                                                <option value="{{ $package['package_id'] }}"
+                                                    @if ($package['package_id'] == $data['package_id']) selected='selected' @endif>
+                                                    {{ $package['package_id'] }} - Maxis Home Fibre
+                                                    {{ $package['internet_speed'] }} -
+                                                    RM{{ $package['price'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
 
                             <div class="flex w-full flex-col justify-between md:flex-row">
-                                <div class="flex w-full flex-col sm:px-4">
-                                    <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Package</label>
-                                    <select class="rounded-lg border px-3 py-2" type="text" name="package_id">
-                                        @foreach ($packages as $package)
-                                            <option value="{{ $package['package_id'] }}">
-                                                {{ $package['package_id'] }} - Maxis Home Fibre
-                                                {{ $package['internet_speed'] }} -
-                                                RM{{ $package['price'] }}</option>
-                                        @endforeach
 
-                                    </select>
-
-                                </div>
                                 <div class="flex w-full flex-col sm:px-4">
                                     <label class="mt-2 text-xl font-bold text-blue-900 md:mt-3">Message</label>
                                     <input class="mb-2 rounded-lg border px-3 py-2" type="text" name='message'
@@ -81,7 +100,6 @@
                                                 @if ($key == $data['status']) selected="selected" @endif>
                                                 {{ $value }}</option>
                                         @endforeach
-
                                     </select>
 
                                 </div>

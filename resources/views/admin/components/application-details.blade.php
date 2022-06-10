@@ -3,6 +3,10 @@
         <h1 class="text-lg font-bold">#{{ $application['id'] }}</h1>
     </div>
     <div>
+        <h1 class="text-sm font-bold">Applicant Type:</h1>
+        <p>{{ $application['type'] }}</p>
+    </div>
+    <div>
         <h1 class="text-sm font-bold">Applicant Name:</h1>
         <p>{{ $application['name'] }}</p>
     </div>
@@ -11,8 +15,10 @@
         <p>{{ $application['email'] }}</p>
     </div>
     <div>
-        <h1 class="text-sm font-bold">Applicant location:</h1>
-        <p>{{ $application['location'] }}</p>
+        <h1 class="text-sm font-bold">Applicant address:</h1>
+        <p>{{ $application['address1'] }}</p>
+        <p>{{ $application['address2'] }}</p>
+        <p>{{ $application['postcode'] }}, {{ $application['city'] }} </p>
     </div>
     <div>
         <h1 class="text-sm font-bold">Selected Package's ID:</h1>

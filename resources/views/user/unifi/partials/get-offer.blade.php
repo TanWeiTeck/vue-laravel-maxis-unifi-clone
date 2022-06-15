@@ -20,20 +20,20 @@
             <div class="flex flex-col md:flex-row">
                 <div class="flex flex-col text-xs">
                     <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="name"
-                        placeholder="Full Name">
+                        placeholder="Full Name" value="{{ old('name') }}">
                     <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="contact"
-                        placeholder="Phone Number">
+                        placeholder="Phone Number" value="{{ old('contact') }}">
                     <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="email" name="email"
-                        placeholder="Email">
+                        placeholder="Email" value="{{ old('email') }}">
                     <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="address1"
-                        placeholder="Address line 1">
+                        placeholder="Address line 1" value="{{ old('address1') }}">
                     <input class='my-1 w-80 rounded-md border p-2 shadow-inner' type="text" name="address2"
-                        placeholder="Address line 2">
+                        placeholder="Address line 2" value="{{ old('address2') }}">
                     <div class="flex w-80 justify-between">
                         <input class='my-1 rounded-md border p-2 shadow-inner' type="text" name="postcode"
-                            placeholder="Postcode">
+                            placeholder="Postcode" value="{{ old('postcode') }}">
                         <input class='my-1 rounded-md border p-2 shadow-inner' type="text" name="city"
-                            placeholder="City">
+                            placeholder="City" value="{{ old('city') }}">
                     </div>
                 </div>
 

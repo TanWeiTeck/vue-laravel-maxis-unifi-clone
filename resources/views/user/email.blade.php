@@ -16,4 +16,4 @@
 <p>Message: {{ $Application->message }}</p>
 
 
-<a href='http://telco-v2.test/applications/list'>Check in admin dashboard</a>
+<a href="{{ route('applications.list') }}">Check in admin dashboard</a>

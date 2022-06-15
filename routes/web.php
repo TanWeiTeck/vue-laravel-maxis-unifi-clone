@@ -22,13 +22,17 @@ use App\Http\Controllers\Admin\Auth\VerificationController;
 |
 */
 
+Route::get('/', function () {
+    return view(".home");
+})->name('home');
+
 Route::get('/maxis', [TelcoController::class, "maxis_index"])->name('maxishome');
 Route::get('/maxis/apply', [TelcoController::class, "maxis_apply"])->name('maxisapply');
 
 Route::get('/unifi', [TelcoController::class, "unifi_index"])->name('unifihome');
 Route::get('/unifi/apply', [TelcoController::class, "unifi_apply"])->name('unifiapply');
 
-Route::post('/apply', [TelcoController::class, "store"])->name('apply');
+Route::post('/apply', [TelcoController::class, "doCreate"])->name('apply');
 
 
 

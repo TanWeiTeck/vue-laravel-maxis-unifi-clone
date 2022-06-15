@@ -10,21 +10,23 @@
             class="h-fit min-w-fit rounded-md bg-orange-500 px-10 py-3 text-base text-white hover:bg-orange-700 sm:m-2">
             GET THE OFFER NOW</a>
     </div>
-    <div class="flex w-full justify-around p-4">
+    <div class="flex w-full flex-col items-center p-4 sm:flex-row sm:justify-around">
         <div class="flex flex-col py-2">
             <a class="h-16 object-contain" href="{{ route('unifihome') }}">
                 <img class='h-full object-contain p-3'
                     src="https://home.unifi.com.my/themes/custom/unifi/assets/svg/unifi-logo.svg" alt="unifi_logo">
             </a>
-
         </div>
-        <div class="flex flex-col py-2">
-
-        </div>
-        <div class="flex flex-col py-2">
-            <h1 class="pb-2 text-lg font-bold">REACH US</h1>
-            <a class="pt-1" href="tel:0123367xxxx">+60 11-1234 xxxx</a>
-            <a class="pt-1" href="mailto:unifi@testmail.com">unifi@testmail.com</a>
+        <div class="flex space-x-10">
+            <div class="flex flex-col py-2">
+                <h1 class="pb-2 text-lg font-bold">REACH US</h1>
+                <a class="pt-1" href="tel:0123367xxxx">+60 11-1234 xxxx</a>
+                <a class="pt-1" href="mailto:unifi@testmail.com">unifi@testmail.com</a>
+            </div>
+            <div class="flex flex-col py-2">
+                <h1 class="pb-2 text-lg font-bold">FOR ADMIN</h1>
+                <a class="pt-1" href="{{ route('dashboard') }}">dashboard</a>
+            </div>
         </div>
     </div>
     <div class="bg-gray-800 px-4">

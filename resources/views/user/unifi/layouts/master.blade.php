@@ -28,7 +28,7 @@
         <div class="">
             @yield('content')
         </div>
-        <div class="min-h-[416px] sm:min-h-[376px]"></div>
+        <div class="min-h-[470px] sm:min-h-[376px]"></div>
         {{-- Footer --}}
         <div class="absolute bottom-0 block w-full">
             @include('user.unifi.partials.footer')

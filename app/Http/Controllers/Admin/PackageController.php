@@ -28,7 +28,6 @@ class PackageController extends Controller
 
     public function doCreate(Request $request)
     {
-        //Validation
         $inputs = $this->fieldValidate($request);
 
         Package::create($inputs);

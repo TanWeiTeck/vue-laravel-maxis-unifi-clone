@@ -16,22 +16,25 @@
 </head>
 
 <body class="antialiased">
+
     <div id="app" class="relative m-auto min-h-screen max-w-screen-2xl">
+
         {{-- Header --}}
         <div>
-            @include('user.maxis.partials.header')
+            @include('partials.header')
         </div>
-
-        {{-- Main Content --}}
-
         <div class="">
-            @yield('content')
+            <div class="">
+                {{-- Main Content --}}
+                <div class="">
+                    @yield('content')
+                </div>
+            </div>
         </div>
-        <div class="min-h-[504px] sm:min-h-[221px]"></div>
-
+        <div class="min-h-[65px] sm:min-h-[49px]"></div>
         {{-- Footer --}}
-        <div class="absolute bottom-0 block w-full">
-            @include('user.maxis.partials.footer')
+        <div class="absolute bottom-0 w-full">
+            @include('admin.partials.footer')
         </div>
     </div>
     <script src="{{ mix('/js/app.js') }}"></script>

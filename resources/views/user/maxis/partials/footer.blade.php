@@ -15,9 +15,11 @@
             <p class="py-1">1-800-82-1919 Or dial 1919 from mobile</p>
         </div>
         <div class="flex flex-col py-2">
-            <h1 class="pb-2 text-lg font-bold">REACH US</h1>
+            <h1 class="pb-1 text-lg font-bold">REACH US</h1>
             <a class="pt-1" href="tel:0123367xxxx">+ 6011-3367xxxx</a>
-            <a class="pt-1" href="mailto:sales.maxisinternet@example.com">sales.maxisinternet@gmail.com</a>
+            <a class="" href="mailto:sales.maxisinternet@example.com">sales.maxisinternet@gmail.com</a>
+            <h1 class="pt-2 text-lg font-bold">FOR ADMIN</h1>
+            <a class="" href="{{ route('dashboard') }}">dashboard</a>
         </div>
     </div>
     <div class="border-t border-blue-800 px-4">

@@ -5,11 +5,9 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use App\Models\Application;
-use App\Models\Coverage_check;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NewApplication;
-use App\Mail\NewCoverageCheck;
 use Illuminate\Validation\Rule;
 
 
@@ -39,52 +37,37 @@ class TelcoController extends Controller
 
         return view(".user.unifi.apply", ["TelcoPackages" => $Package]);
     }
-    public function store(Request $request)
+    public function doCreate(Request $request)
     {
-        $this->validate(
-            $request,
-            [
-                'type' => '',
-                'name' => ['required', 'min:3'],
-                'contact' => ['required', Rule::unique('applications')->where('type', $request->type)],
-                'email'  => 'required',
-                'address1'  => 'required',
-                'address2'  => '',
-                'postcode' => ['required', 'integer'],
-                'city' => 'required',
-                'service_provider' => 'required',
-                'product_category' => 'required_if:type,get_offer',
-                'package_id' => 'required_if:type,application',
-                'message' => '',
+        $inputs = $this->fieldValidation($request);
 
-            ],
-            [
-                'address1.required' => "The address fill is required",
-                'product_category.required_if' => "Please select your interest",
-            ]
-        );
+        $Application = Application::create($inputs);
 
-        $Application = Application::create($request->all());
-
-        $receiverEmailAddress = ['tanweiteck.twt@gmail.com'];
-        Mail::to($receiverEmailAddress)->send(new NewApplication($Application));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new NewApplication($Application));
         return back()->with('success', 'Congratulations ! ! !  Your application has been submitted.');
     }
 
-    public function coverage_doCreate(Request $request)
+    public function fieldValidation(Request $request)
     {
-        $this->validate($request, [
-            'name' => ['required', 'min:3'],
-            'email'  => 'required',
-            'location'  => 'required',
-            'contact' => ['required', 'unique:Coverage_check'],
-            'message' => ''
-        ]);
+        $inputs = $request->validate(
+            array_merge(
+                [
+                    'type' => '',
+                    'name' => ['required', 'min:3'],
+                    'contact' => ['required', Rule::unique('applications')->where('type', $request->type)],
+                    'email'  => 'required',
+                    'address1'  => 'required',
+                    'address2'  => '',
+                    'postcode' => ['required', 'integer'],
+                    'city' => 'required',
+                    'service_provider' => 'required',
+                    'product_category' => 'required_if:type,get_offer',
+                    'package_id' => 'required_if:type,application',
+                    'message' => '',
+                ]
+            )
+        );
 
-        $Coverage_Check = Coverage_Check::create($request->all());
-
-        $receiverEmailAddress = ['tanweiteck.twt@gmail.com'];
-        Mail::to($receiverEmailAddress)->send(new NewCoverageCheck($Coverage_Check));
-        return back()->with('success', 'Congratulations ! ! !  Your application has been submitted.');
+        return $inputs;
     }
 }
